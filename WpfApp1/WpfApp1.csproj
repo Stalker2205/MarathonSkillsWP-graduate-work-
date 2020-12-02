@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,15 +56,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CharityView.xaml.cs">
+      <DependentUpon>CharityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Podtw.xaml.cs">
+      <DependentUpon>Podtw.xaml</DependentUpon>
+    </Compile>
     <Compile Include="marathonDataSet.cs">
       <DependentUpon>marathonDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Perem.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="CharityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Fsponsor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Podtw.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,18 +115,14 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="marathonDataSet.xsc">
@@ -126,6 +143,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arise-logo.png" />
+    <Resource Include="Images\aves-do-brazil-logo.png" />
+    <Resource Include="Images\clara-santos-oliveira-institute-logo.png" />
+    <Resource Include="Images\conquer-cancer-brazil.png" />
+    <Resource Include="Images\diabetes-brazil-logo.png" />
+    <Resource Include="Images\heart-health-sao-paulo-logo.png" />
+    <Resource Include="Images\human-rights-centre-logo.png" />
+    <Resource Include="Images\oxfam-international-logo.png" />
+    <Resource Include="Images\querstadtein-logo.png" />
+    <Resource Include="Images\save-the-children-fund-logo.png" />
+    <Resource Include="Images\stay-pumped-logo.png" />
+    <Resource Include="Images\the-red-cross-logo.png" />
+    <Resource Include="Images\upbeat-logo.png" />
+    <Resource Include="Images\wwsm-rescue-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

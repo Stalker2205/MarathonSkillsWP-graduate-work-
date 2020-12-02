@@ -72,8 +72,8 @@ namespace WpfApp1
                 Convert.ToInt32(TboxPrice.Text);
             }
             catch { MessageBox.Show("Сумма пожертвований должна быть числом"); return; }
-            LPric.Content = "$" + Convert.ToString(Convert.ToInt32(TboxPrice.Text) + 5);
-            TboxPrice.Text = Convert.ToString(Convert.ToInt32(TboxPrice.Text) + 5);
+            LPric.Content = "$" + Convert.ToString(Convert.ToInt32(TboxPrice.Text) + 10);
+            TboxPrice.Text = Convert.ToString(Convert.ToInt32(TboxPrice.Text) + 10);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -88,8 +88,8 @@ namespace WpfApp1
                 MessageBox.Show("Сумма не может быть меньше или равна 0");
                 return;
             }
-            LPric.Content = "$" + Convert.ToString(Convert.ToInt32(TboxPrice.Text) - 5);
-            TboxPrice.Text = Convert.ToString(Convert.ToInt32(TboxPrice.Text) - 5);
+            LPric.Content = "$" + Convert.ToString(Convert.ToInt32(TboxPrice.Text) - 10);
+            TboxPrice.Text = Convert.ToString(Convert.ToInt32(TboxPrice.Text) - 10);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -107,15 +107,19 @@ namespace WpfApp1
             if (TboxName1.Text.Length == 0) { MessageBox.Show("Введите имя и фамилию плательщика"); return; }
             if (expr1ComboBox.SelectedIndex == -1) { MessageBox.Show("Выберите"); return; }
             if (TboxVladCart.Text.Length == 0) { MessageBox.Show("Введите владельца карты"); return; }
-            if (TboxNumberCart.Text.Length != 16) { MessageBox.Show("Номер карты состоит только из цифр"); return; }
+            if (TboxNumberCart.Text.Length != 16) { MessageBox.Show("Номер карты должен состоять из 16 цифр"); return; }
+            int iwwwe;
+            int iwwwe1;
             try
             {
-                Convert.ToInt32(TboxNumberCart.Text);
+                iwwwe =  Convert.ToInt32(TboxNumberCart.Text.Substring(0,8));
+                iwwwe1 = Convert.ToInt32(TboxNumberCart.Text.Substring(8, 8));
             }
             catch { MessageBox.Show("Номер карты должен состоять только из цифр"); return; }
+            if(Convert.ToInt32(TboxSrokMunf.Text) > 12) { MessageBox.Show("Месяц не может быть больше 12"); }
             if (TboxSrokMunf.Text.Length == 0) { MessageBox.Show("Введите месяц на карте"); return; }
             if (TboxSrokYear.Text.Length == 0) { MessageBox.Show("Введите год карты"); return; }
-            if (TboxCVC.Text.Length != 0) { MessageBox.Show("Введите CVC"); return; }
+            if (TboxCVC.Text.Length == 0) { MessageBox.Show("Введите CVC"); return; }
             try
             {
                 Convert.ToInt32(TboxSrokMunf.Text);
@@ -138,7 +142,12 @@ namespace WpfApp1
                 string h = marathonDataSet.DataTable1[0][1].ToString();
                 WpfApp1.marathonDataSetTableAdapters.SponsorshipTableAdapter sponsorshipTableAdapter = new marathonDataSetTableAdapters.SponsorshipTableAdapter();
                 sponsorshipTableAdapter.InsertQuery(TboxName1.Text, Convert.ToInt32(h), Convert.ToDecimal(TboxPrice.Text));
-                MessageBox.Show("Спасибо за поддержку"); Close();
+                //MessageBox.Show("Спасибо за поддержку"); Close();
+                Perem.Price =Convert.ToInt32(TboxPrice.Text);
+                Perem.Name = expr1ComboBox.Text;
+                Podtw podtw = new Podtw();
+                podtw.ShowDialog();
+                Close();
             }
         }
 
@@ -150,11 +159,34 @@ namespace WpfApp1
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+            WpfApp1.marathonDataSetTableAdapters.DataTable2TableAdapter dataTable2TableAdapter = new marathonDataSetTableAdapters.DataTable2TableAdapter();
             WpfApp1.marathonDataSetTableAdapters.DataTable1TableAdapter dataTable1TableAdapter = new marathonDataSetTableAdapters.DataTable1TableAdapter();
-            int i = dataTable1TableAdapter.findID(marathonDataSet.DataTable1, expr1ComboBox.Text);
-            string CharityName = marathonDataSet.DataTable1[0][2].ToString();
-            string CharityDescription = marathonDataSet.DataTable1[0][3].ToString();
+            dataTable1TableAdapter.findID(marathonDataSet.DataTable1, expr1ComboBox.Text);
+            string id= marathonDataSet.DataTable1[0][1].ToString();
+            dataTable2TableAdapter.FillBy(marathonDataSet.DataTable2, Convert.ToInt32(id));
+            Perem.CharityName = marathonDataSet.DataTable2[0][1].ToString();
+            Perem.CharityDescription = marathonDataSet.DataTable2[0][2].ToString();
+            Perem.LogoName = marathonDataSet.DataTable2[0][3].ToString();
+            CharityView charityView = new CharityView();
+            charityView.ShowDialog();
+            WpfApp1.marathonDataSetTableAdapters.DataTable1TableAdapter marathonDataSetDataTable1TableAdapter = new WpfApp1.marathonDataSetTableAdapters.DataTable1TableAdapter();
+            marathonDataSetDataTable1TableAdapter.FillBy1(marathonDataSet.DataTable1);
+            System.Windows.Data.CollectionViewSource dataTable1ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("dataTable1ViewSource")));
+            dataTable1ViewSource.View.MoveCurrentToFirst();
+        }
 
+        private void expr1ComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            string ss = expr1ComboBox.Text;
+            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+            WpfApp1.marathonDataSetTableAdapters.DataTable2TableAdapter dataTable2TableAdapter = new marathonDataSetTableAdapters.DataTable2TableAdapter();
+            WpfApp1.marathonDataSetTableAdapters.DataTable1TableAdapter dataTable1TableAdapter = new marathonDataSetTableAdapters.DataTable1TableAdapter();
+            dataTable1TableAdapter.findID(marathonDataSet.DataTable1, expr1ComboBox.Text);
+            string id = marathonDataSet.DataTable1[0][1].ToString();
+            dataTable2TableAdapter.FillBy(marathonDataSet.DataTable2, Convert.ToInt32(id));
+            OrgName.Content = marathonDataSet.DataTable2[0][1].ToString();
+            dataTable1TableAdapter.FillBy1(marathonDataSet.DataTable1);
+            expr1ComboBox.Text = ss;
         }
     }
 }
