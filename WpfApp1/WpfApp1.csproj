@@ -56,10 +56,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CharityView.xaml.cs">
+    <Compile Include="Admin\AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bolvanka.xaml.cs">
+      <DependentUpon>Bolvanka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\CoordinatorMenu.xaml.cs">
+      <DependentUpon>CoordinatorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\RegisterAsARunner.xaml.cs">
+      <DependentUpon>RegisterAsARunner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\RunnerMenu.xaml.cs">
+      <DependentUpon>RunnerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Total\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sponsor\SpisokOrg.xaml.cs">
+      <DependentUpon>SpisokOrg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sponsor\PonrInfa.xaml.cs">
+      <DependentUpon>PonrInfa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sponsor\CharityView.xaml.cs">
       <DependentUpon>CharityView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Podtw.xaml.cs">
+    <Compile Include="Total\Bolvanka.xaml.cs">
+      <DependentUpon>Bolvanka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sponsor\Podtw.xaml.cs">
       <DependentUpon>Podtw.xaml</DependentUpon>
     </Compile>
     <Compile Include="marathonDataSet.cs">
@@ -71,18 +98,51 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
-    <Page Include="CharityView.xaml">
+    <Page Include="Admin\AdminMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Bolvanka.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Coordinator\CoordinatorMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\RegisterAsARunner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\RunnerMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Total\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sponsor\SpisokOrg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sponsor\PonrInfa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sponsor\CharityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Fsponsor.xaml">
+    <Page Include="Sponsor\Fsponsor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Podtw.xaml">
+    <Page Include="Total\Bolvanka.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sponsor\Podtw.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -94,17 +154,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Fsponsor.xaml.cs">
+    <Compile Include="Sponsor\Fsponsor.xaml.cs">
       <DependentUpon>Fsponsor.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="marathonDataSet.Designer.cs">

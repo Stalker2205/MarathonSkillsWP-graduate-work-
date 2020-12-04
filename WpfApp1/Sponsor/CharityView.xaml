@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="CharityView" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+        <CollectionViewSource x:Key="dataTable1ViewSource" Source="{Binding DataTable1, Source={StaticResource marathonDataSet}}"/>
+    </Window.Resources>
     <Grid>
         <Label Content="Наименование спонсора" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="36" Name="CharityName"/>
         <TextBlock HorizontalAlignment="Center" Margin="10,182,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-4.305,-6.851" Height="227" Width="772" Name="CharityDiscription"/>

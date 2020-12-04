@@ -20,9 +20,9 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PonrInfa : Window
     {
-        public MainWindow()
+        public PonrInfa()
         {
             InitializeComponent();
         }
@@ -32,7 +32,6 @@ namespace WpfApp1
             timerStart();
         }
         private DispatcherTimer timer = null;
-
         private void timerStart()
         {
             timer = new DispatcherTimer();  // если надо, то в скобках указываем приоритет, например DispatcherPriority.Render
@@ -40,52 +39,29 @@ namespace WpfApp1
             timer.Interval = new TimeSpan(0, 0, 0, 0, 500);
             timer.Start();
         }
-
         private void timerTick(object sender, EventArgs e)
         {
             DateTime nn = DateTime.Now;
             DateTime n1 = Convert.ToDateTime("10.12.2020 18:30:25");
             int day = n1.Day - nn.Day;
             int min = (n1.Hour * 60 + n1.Minute) - (nn.Hour * 60 + nn.Minute);
-            int hour=0;
-            while(min>60)
+            int hour = 0;
+            while (min > 60)
             {
                 min -= 60;
                 hour++;
             }
             LabelTime.Content = $"{day} дней {hour} часов и {min} минут до старта марафона!";
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
-            WpfApp1.marathonDataSetTableAdapters.StaffTableAdapter staff = new marathonDataSetTableAdapters.StaffTableAdapter();
-            // staff.Id(marathonDataSet.Staff, 2);
+            Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Fsponsor fsponsor = new Fsponsor();
-            fsponsor.ShowDialog();
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            PonrInfa ponrInfa = new PonrInfa();
-            ponrInfa.ShowDialog();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.ShowDialog();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            RegisterAsARunner registerAsARunner = new RegisterAsARunner();
-            registerAsARunner.ShowDialog();
-  
+            SpisokOrg spisokOrg = new SpisokOrg();
+            spisokOrg.ShowDialog();
         }
     }
 }

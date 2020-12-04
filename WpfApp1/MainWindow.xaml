@@ -24,13 +24,13 @@
         <Grid Height="135" VerticalAlignment="Top" Background="Black">
             <Label Content="Москва,Россия" HorizontalAlignment="Left" Margin="155,57,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
         </Grid>
-        <Button Content="Я хочу сатть бегуном" HorizontalAlignment="Left" Margin="113,151,0,0" VerticalAlignment="Top" Width="241" Height="56"/>
+        <Button Content="Я хочу сатть бегуном" HorizontalAlignment="Left" Margin="113,151,0,0" VerticalAlignment="Top" Width="241" Height="56" Click="Button_Click_3"/>
         <Button Content="Я хочу стать спонором бегуна" HorizontalAlignment="Left" Margin="113,212,0,0" VerticalAlignment="Top" Width="241" Height="56" Click="Button_Click_1"/>
-        <Button Content="Я хочу узнать болше о событии" HorizontalAlignment="Left" Margin="113,273,0,0" VerticalAlignment="Top" Width="241" Height="56"/>
+        <Button Content="Я хочу узнать болше о событии" Click="Button_Click_4" HorizontalAlignment="Left" Margin="113,273,0,0" VerticalAlignment="Top" Width="241" Height="56"/>
         <Grid Height="39" Margin="0,380,0,0" VerticalAlignment="Top" Background="Black">
             <Label Content="18 дней 8 часов и 17 минут до старта марафона!" HorizontalAlignment="Left" Foreground="White" Margin="92,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
         </Grid>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="354,349,0,0" VerticalAlignment="Top" Width="118" Height="26"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="354,349,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="Button_Click_2"/>
         <Label Content="MARATHON SKILLS 2020"  Background="Black" Foreground="White" Margin="0,27,117,0" VerticalAlignment="Top" RenderTransformOrigin="-2.237,1.135" FontSize="22" HorizontalAlignment="Right" Width="256"/>
         <Label Content="Среда 26 января 2020" HorizontalAlignment="Left" Foreground="White"  Margin="170,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.066,0.808"/>
     </Grid>

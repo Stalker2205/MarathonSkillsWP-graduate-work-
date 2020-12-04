@@ -12,6 +12,7 @@ namespace WpfApp1
         public static string CharityDescription;
         public static string LogoName;
         public static int Price;
-        public static string Name;
+        public static string PeopleName;
+        public static string Runner;
     }
 }

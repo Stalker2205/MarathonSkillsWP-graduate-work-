@@ -20,9 +20,9 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class Podtw : Window
+    public partial class RunnerMenu : Window
     {
-        public Podtw()
+        public RunnerMenu()
         {
             InitializeComponent();
         }
@@ -30,9 +30,6 @@ namespace WpfApp1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timerStart();
-            org.Content = Perem.CharityName;
-            name1.Content = Perem.Name;
-            Price.Content = Perem.Price;
         }
         private DispatcherTimer timer = null;
 
@@ -66,12 +63,8 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Close();
-        }
-
-        private void Window_Loaded_1(object sender, RoutedEventArgs e)
-        {
-
+            MessageBox.Show("Для получения дополнительной информации\nпожалуйста свяжитесь с координаторами\n\n Телефон:55 11 9988 7766" +
+                "\n\n Email: coordinators@marathonskills.org", "Контакты");return;
         }
     }
 }
