@@ -59,11 +59,11 @@
     <Compile Include="Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bolvanka.xaml.cs">
-      <DependentUpon>Bolvanka.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Coordinator\CoordinatorMenu.xaml.cs">
       <DependentUpon>CoordinatorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\NewRunner.xaml.cs">
+      <DependentUpon>NewRunner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Runner\RegisterAsARunner.xaml.cs">
       <DependentUpon>RegisterAsARunner.xaml</DependentUpon>
@@ -102,11 +102,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Bolvanka.xaml">
+    <Page Include="Coordinator\CoordinatorMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Coordinator\CoordinatorMenu.xaml">
+    <Page Include="Runner\NewRunner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

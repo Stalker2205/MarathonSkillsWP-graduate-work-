@@ -60,5 +60,12 @@ namespace WpfApp1
         {
             Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NewRunner newRunner = new NewRunner();
+            newRunner.Show();
+            Close();
+        }
     }
 }
