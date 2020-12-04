@@ -60,5 +60,15 @@ namespace WpfApp1
         {
             Close();
         }
+<<<<<<< HEAD
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NewRunner newRunner = new NewRunner();
+            newRunner.Show();
+            Close();
+        }
+=======
+>>>>>>> c0e041a... Сесия 1
     }
 }

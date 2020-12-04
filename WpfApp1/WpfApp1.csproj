@@ -59,12 +59,21 @@
     <Compile Include="Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Coordinator\CoordinatorMenu.xaml.cs">
+      <DependentUpon>CoordinatorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\NewRunner.xaml.cs">
+      <DependentUpon>NewRunner.xaml</DependentUpon>
+    </Compile>
+=======
     <Compile Include="Bolvanka.xaml.cs">
       <DependentUpon>Bolvanka.xaml</DependentUpon>
     </Compile>
     <Compile Include="Coordinator\CoordinatorMenu.xaml.cs">
       <DependentUpon>CoordinatorMenu.xaml</DependentUpon>
     </Compile>
+>>>>>>> c0e041a... Сесия 1
     <Compile Include="Runner\RegisterAsARunner.xaml.cs">
       <DependentUpon>RegisterAsARunner.xaml</DependentUpon>
     </Compile>
@@ -102,11 +111,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+    <Page Include="Coordinator\CoordinatorMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\NewRunner.xaml">
+=======
     <Page Include="Bolvanka.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Coordinator\CoordinatorMenu.xaml">
+>>>>>>> c0e041a... Сесия 1
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
