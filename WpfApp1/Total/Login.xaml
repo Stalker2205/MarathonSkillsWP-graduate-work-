@@ -13,7 +13,8 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource staffViewSource}" Margin="0,-2,0,2">
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="21*"/>
         </Grid.RowDefinitions>
         <Grid x:Name="grid1" DataContext="{StaticResource marathonViewSource}" HorizontalAlignment="Left" Margin="354,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.394,-1.641" Height="0" Width="0">
             <Grid.ColumnDefinitions>
@@ -24,7 +25,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid Height="32" Margin="0,370,0,0" VerticalAlignment="Top" Background="Black">
+        <Grid Height="32" Margin="0,8.496,0,0" VerticalAlignment="Top" Background="Black" Grid.Row="1">
             <Label Content="18 дней 8 часов и 17 минут до старта марафона!" HorizontalAlignment="Left" Foreground="White" Margin="92,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="484" Background="Black">

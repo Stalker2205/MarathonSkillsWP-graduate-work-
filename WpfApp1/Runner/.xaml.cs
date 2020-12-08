@@ -14,16 +14,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Windows.Threading;
-using Libra;
 
 namespace WpfApp1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistrationConfirmation : Window
     {
-        public MainWindow()
+        public RegistrationConfirmation()
         {
             InitializeComponent();
         }
@@ -59,40 +58,7 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
-            WpfApp1.marathonDataSetTableAdapters.StaffTableAdapter staff = new marathonDataSetTableAdapters.StaffTableAdapter();
-            // staff.Id(marathonDataSet.Staff, 2);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Fsponsor fsponsor = new Fsponsor();
-            fsponsor.ShowDialog();
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            PonrInfa ponrInfa = new PonrInfa();
-            ponrInfa.ShowDialog();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.ShowDialog();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            RegisterAsARunner registerAsARunner = new RegisterAsARunner();
-            registerAsARunner.ShowDialog();
-  
-        }
-
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            RegisterForAnEvent registerForAnEvent = new RegisterForAnEvent();
-            registerForAnEvent.Show();
+            Close();
         }
     }
 }

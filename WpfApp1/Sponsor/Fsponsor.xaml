@@ -91,7 +91,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Благотворительность" Foreground="Gray" HorizontalAlignment="Center" FontSize="18" Width="219" FontWeight="Bold" Margin="0,0,0,248"/>
-            <Label Content="Фонд Кошек" HorizontalAlignment="Left" Name="OrgName" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="Фонд Кошек" HorizontalAlignment="Left" Name="OrgName" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="14"/>
             <Label Content="Сумма пожертвования" Foreground="Gray" HorizontalAlignment="Center" FontSize="18" Width="219" FontWeight="Bold" Margin="0,86,0,162"/>
             <Label Content="$50" Name="LPric" Foreground="Gray" HorizontalAlignment="Left" Margin="69,111,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="36" RenderTransformOrigin="0.5,0.5"/>
             <TextBox HorizontalAlignment="Left"  Height="29" Name="TboxPrice" Margin="58,169,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="100" TextAlignment="Center" FontSize="18"/>

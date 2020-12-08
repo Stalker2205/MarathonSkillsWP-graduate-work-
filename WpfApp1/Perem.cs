@@ -14,5 +14,6 @@ namespace WpfApp1
         public static int Price;
         public static string PeopleName;
         public static string Runner;
+        public static string PhotoName;
     }
 }

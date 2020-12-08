@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Windows.Threading;
+using Libra;
 
 namespace WpfApp1
 {
@@ -66,9 +67,14 @@ namespace WpfApp1
             if (TboxMail.Text.Length == 0 || TboxPass.Text.Length == 0) { MessageBox.Show("Введите mail и пароль"); return; }
             WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
             WpfApp1.marathonDataSetTableAdapters.UserTableAdapter userTableAdapter = new marathonDataSetTableAdapters.UserTableAdapter();
+            WpfApp1.marathonDataSetTableAdapters.RunnerTableAdapter runnerTableAdapter = new marathonDataSetTableAdapters.RunnerTableAdapter();
+            runnerTableAdapter.SerchEmail(marathonDataSet.Runner, TboxMail.Text);
             userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text);
             if (userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text) == 0) { MessageBox.Show("Такой комбинации логина и пароля не существует"); return; }
             string role = marathonDataSet.User[0][4].ToString();
+            Runner.Email = TboxMail.Text;
+            Runner.Password = TboxPass.Text;
+            Runner.CountryCode = marathonDataSet.Runner[0][4].ToString();
             switch (role)
             {
                 case "R"://бегун

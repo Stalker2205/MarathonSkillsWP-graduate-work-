@@ -165,15 +165,21 @@ namespace WpfApp1
         {
             this.Close();
         }
-
+        int key=0;
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (key == 0)
+            {
+                MessageBox.Show("Сначала выберите бегуна"); return; 
+            }
+            Perem.CharityName = OrgName.Content.ToString();
             CharityView charityView = new CharityView();
             charityView.ShowDialog();
         }
 
         private void expr1ComboBox_DropDownClosed(object sender, EventArgs e)
         {
+            key = 1;
             string ss = expr1ComboBox.Text;
             Perem.Runner = expr1ComboBox.Text;
             Perem.PeopleName = expr1ComboBox.Text;

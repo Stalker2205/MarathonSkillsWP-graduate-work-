@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+        <CollectionViewSource x:Key="charityViewSource" Source="{Binding Charity, Source={StaticResource marathonDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource charityViewSource}">
+        <DataGrid x:Name="charityDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="300,216,92,3" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="charityIdColumn" Binding="{Binding CharityId}" Header="Charity Id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="charityNameColumn" Header="Charity Name" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding CharityName}"/>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="charityDescriptionColumn" Binding="{Binding CharityDescription}" Header="Charity Description" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="charityLogoColumn" Binding="{Binding CharityLogo}" Header="Charity Logo" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

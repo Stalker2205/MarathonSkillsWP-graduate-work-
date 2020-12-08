@@ -59,6 +59,15 @@
     <Compile Include="Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Runner\EditRunnerProfile.xaml.cs">
+      <DependentUpon>EditRunnerProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\.xaml.cs">
+      <DependentUpon>RegistrationConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\RegisterForAnEvent.xaml.cs">
+      <DependentUpon>RegisterForAnEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Coordinator\CoordinatorMenu.xaml.cs">
       <DependentUpon>CoordinatorMenu.xaml</DependentUpon>
     </Compile>
@@ -80,7 +89,7 @@
     <Compile Include="Sponsor\PonrInfa.xaml.cs">
       <DependentUpon>PonrInfa.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sponsor\CharityView.xaml.cs">
+    <Compile Include="CharityView.xaml.cs">
       <DependentUpon>CharityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Total\Bolvanka.xaml.cs">
@@ -98,7 +107,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="Admin\AdminMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\EditRunnerProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\RegistrationConfirmation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\RegisterForAnEvent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -130,7 +154,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Sponsor\CharityView.xaml">
+    <Page Include="CharityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +185,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="marathonDataSet.Designer.cs">
@@ -218,6 +246,12 @@
     <Resource Include="Images\the-red-cross-logo.png" />
     <Resource Include="Images\upbeat-logo.png" />
     <Resource Include="Images\wwsm-rescue-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libra\Libra.csproj">
+      <Project>{16f93f13-d45c-4c47-865b-b62714e1ab21}</Project>
+      <Name>Libra</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

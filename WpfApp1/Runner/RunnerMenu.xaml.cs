@@ -66,5 +66,22 @@ namespace WpfApp1
             MessageBox.Show("Для получения дополнительной информации\nпожалуйста свяжитесь с координаторами\n\n Телефон:55 11 9988 7766" +
                 "\n\n Email: coordinators@marathonskills.org", "Контакты");return;
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            EditRunnerProfile runnerProfile = new EditRunnerProfile();
+            runnerProfile.ShowDialog();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            RegisterForAnEvent registerForAn = new RegisterForAnEvent();
+            registerForAn.ShowDialog();
+        }
     }
 }
