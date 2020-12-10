@@ -84,5 +84,20 @@ namespace WpfApp1
         {
             Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NewInventory newInventory = new NewInventory();
+            newInventory.ShowDialog();
+            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(FindResource("marathonDataSet")));
+            marathonDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter = new marathonDataSetTableAdapters.InventoryTableAdapter();
+            inventoryTableAdapter.Fill(marathonDataSet.Inventory);
+            ost1.Text = marathonDataSet.Inventory[0][2].ToString();
+            ost2.Text = marathonDataSet.Inventory[1][2].ToString();
+            ost3.Text = marathonDataSet.Inventory[2][2].ToString();
+            ost4.Text = marathonDataSet.Inventory[3][2].ToString();
+            ost5.Text = marathonDataSet.Inventory[4][2].ToString();
+            ost6.Text = marathonDataSet.Inventory[5][2].ToString();
+        }
     }
 }

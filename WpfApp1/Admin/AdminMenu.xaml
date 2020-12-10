@@ -40,7 +40,7 @@
                 </TextBlock>
             </Button>
             <Button Content="Волонтеры" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Width="142" Height="65" FontSize="18"/>
-            <Button Content="Инвентарь" HorizontalAlignment="Left" Margin="252,80,0,0" VerticalAlignment="Top" Width="142" Height="65" FontSize="18"/>
+            <Button Content="Инвентарь" Click="Button_Click_2" HorizontalAlignment="Left" Margin="252,80,0,0" VerticalAlignment="Top" Width="142" Height="65" FontSize="18"/>
         </Grid>
     </Grid>
 </Window>

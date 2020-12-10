@@ -20,9 +20,9 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class AdminMenu : Window
+    public partial class NewInventory : Window
     {
-        public AdminMenu()
+        public NewInventory()
         {
             InitializeComponent();
         }
@@ -47,8 +47,8 @@ namespace WpfApp1
             DateTime n1 = Convert.ToDateTime("10.12.2020 18:30:25");
             int day = n1.Day - nn.Day;
             int min = (n1.Hour * 60 + n1.Minute) - (nn.Hour * 60 + nn.Minute);
-            int hour=0;
-            while(min>60)
+            int hour = 0;
+            while (min > 60)
             {
                 min -= 60;
                 hour++;
@@ -63,13 +63,23 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+            marathonDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter = new marathonDataSetTableAdapters.InventoryTableAdapter();
+            inventoryTableAdapter.Fill(marathonDataSet.Inventory);
+            int num = Convert.ToInt32(marathonDataSet.Inventory[0][2].ToString()); ;
+            int rfid = Convert.ToInt32(marathonDataSet.Inventory[1][2].ToString());
+            int beis = Convert.ToInt32(marathonDataSet.Inventory[2][2].ToString());
+            int water = Convert.ToInt32(marathonDataSet.Inventory[3][2].ToString());
+            int fytbolka = Convert.ToInt32(marathonDataSet.Inventory[4][2].ToString());
+            int bykl = Convert.ToInt32(marathonDataSet.Inventory[5][2].ToString());
+            inventoryTableAdapter.UpdateQuery("Номер", num + Convert.ToInt32(NumerTbox.Text));
+            inventoryTableAdapter.UpdateQuery("RFID", rfid + Convert.ToInt32((Rfid.Text)));
+            inventoryTableAdapter.UpdateQuery("Бейсболка", beis + Convert.ToInt32((beisbol.Text)));
+            inventoryTableAdapter.UpdateQuery("Бутылка воды", water + Convert.ToInt32((WaterTbox.Text)));
+            inventoryTableAdapter.UpdateQuery("Футболка", fytbolka + Convert.ToInt32((FytbTbox.Text)));
+            inventoryTableAdapter.UpdateQuery("Сувенирный буклет", bykl + Convert.ToInt32((ByklTbox.Text)));
+            Close();
 
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Inventory inventory = new Inventory();
-            inventory.ShowDialog();
         }
     }
 }

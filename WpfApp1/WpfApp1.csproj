@@ -61,8 +61,11 @@
     <Compile Include="Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.xaml.cs">
+    <Compile Include="Admin\Inventory.xaml.cs">
       <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewInventory.xaml.cs">
+      <DependentUpon>NewInventory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Marathon\AboutMarathon.xaml.cs">
       <DependentUpon>AboutMarathon.xaml</DependentUpon>
@@ -128,7 +131,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Inventory.xaml">
+    <Page Include="Admin\Inventory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
