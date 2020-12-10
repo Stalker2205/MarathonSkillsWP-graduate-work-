@@ -4,6 +4,7 @@ namespace Libra
 {
     public class Runner
     {
+        public static string ID;
         public static string Email;
         public static string Password;
         public static string PasswordRepeat;

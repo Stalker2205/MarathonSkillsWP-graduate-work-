@@ -35,7 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -58,6 +60,18 @@
     </ApplicationDefinition>
     <Compile Include="Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.xaml.cs">
+      <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Marathon\AboutMarathon.xaml.cs">
+      <DependentUpon>AboutMarathon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Marathon\HowLongIsAMarathon.xaml.cs">
+      <DependentUpon>HowLongIsAMarathon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\MyRaceResults.xaml.cs">
+      <DependentUpon>MyRaceResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="Runner\EditRunnerProfile.xaml.cs">
       <DependentUpon>EditRunnerProfile.xaml</DependentUpon>
@@ -86,7 +100,7 @@
     <Compile Include="Sponsor\SpisokOrg.xaml.cs">
       <DependentUpon>SpisokOrg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sponsor\PonrInfa.xaml.cs">
+    <Compile Include="Marathon\PonrInfa.xaml.cs">
       <DependentUpon>PonrInfa.xaml</DependentUpon>
     </Compile>
     <Compile Include="CharityView.xaml.cs">
@@ -111,6 +125,22 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="Admin\AdminMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Inventory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Marathon\AboutMarathon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Marathon\HowLongIsAMarathon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\MyRaceResults.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -150,7 +180,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Sponsor\PonrInfa.xaml">
+    <Page Include="Marathon\PonrInfa.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

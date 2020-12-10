@@ -69,7 +69,8 @@ namespace WpfApp1
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            MyRaceResults myRaceResults = new MyRaceResults();
+            myRaceResults.ShowDialog();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

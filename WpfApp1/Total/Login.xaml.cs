@@ -72,6 +72,7 @@ namespace WpfApp1
             userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text);
             if (userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text) == 0) { MessageBox.Show("Такой комбинации логина и пароля не существует"); return; }
             string role = marathonDataSet.User[0][4].ToString();
+            Runner.ID = marathonDataSet.Runner[0][0].ToString();
             Runner.Email = TboxMail.Text;
             Runner.Password = TboxPass.Text;
             Runner.CountryCode = marathonDataSet.Runner[0][4].ToString();

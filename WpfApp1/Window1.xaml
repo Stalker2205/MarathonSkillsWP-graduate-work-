@@ -9,24 +9,17 @@
     <Window.Resources>
         <local:marathonDataSet x:Key="marathonDataSet"/>
         <CollectionViewSource x:Key="charityViewSource" Source="{Binding Charity, Source={StaticResource marathonDataSet}}"/>
+        <CollectionViewSource x:Key="dataTable3ViewSource" Source="{Binding DataTable3, Source={StaticResource marathonDataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource charityViewSource}">
-        <DataGrid x:Name="charityDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="300,216,92,3" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="dataTable3DataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource dataTable3ViewSource}}" Margin="164,116,228,103" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="charityIdColumn" Binding="{Binding CharityId}" Header="Charity Id" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTemplateColumn x:Name="charityNameColumn" Header="Charity Name" Width="SizeToHeader">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <ComboBox>
-                                <ComboBoxItem Content="{Binding CharityName}"/>
-                            </ComboBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="charityDescriptionColumn" Binding="{Binding CharityDescription}" Header="Charity Description" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="charityLogoColumn" Binding="{Binding CharityLogo}" Header="Charity Logo" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="runnerIdColumn" Binding="{Binding RunnerId}" Header="Runner Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="eventNameColumn" Binding="{Binding EventName}" Header="Event Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="raceTimeColumn" Binding="{Binding RaceTime}" Header="Race Time" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="dataColumn1Column" Binding="{Binding DataColumn1}" Header="Data Column 1" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="genderColumn" Binding="{Binding Gender}" Header="Gender" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </Window>
