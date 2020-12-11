@@ -15,5 +15,11 @@ namespace WpfApp1
         public static string PeopleName;
         public static string Runner;
         public static string PhotoName;
+        private static DateTime Starting = Convert.ToDateTime("01.01.2021 18:30:25");
+        public static TimeSpan datetim()
+        {
+            TimeSpan timeSpan = Starting.Subtract(DateTime.Now);
+            return timeSpan;
+        }
     }
 }

@@ -64,8 +64,14 @@
     <Compile Include="Admin\Inventory.xaml.cs">
       <DependentUpon>Inventory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewInventory.xaml.cs">
+    <Compile Include="Admin\NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageCharities.xaml.cs">
+      <DependentUpon>ManageCharities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Marathon\InteractMap.xaml.cs">
+      <DependentUpon>InteractMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Marathon\AboutMarathon.xaml.cs">
       <DependentUpon>AboutMarathon.xaml</DependentUpon>
@@ -135,7 +141,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NewInventory.xaml">
+    <Page Include="Admin\NewInventory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ManageCharities.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Marathon\InteractMap.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -289,6 +303,27 @@
       <Project>{16f93f13-d45c-4c47-865b-b62714e1ab21}</Project>
       <Name>Libra</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\marathon-skills-2016-marathon-map.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\map-icon-information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\map-icon-start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\map-icon-drinks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\map-icon-energy-bars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\map-icon-toilets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\map-icon-medical.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

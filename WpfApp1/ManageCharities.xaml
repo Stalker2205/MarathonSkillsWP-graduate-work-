@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfApp1.ManageCharities"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ManageCharities" Height="434.667" Width="494" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+        <CollectionViewSource x:Key="charityViewSource" Source="{Binding Charity, Source={StaticResource marathonDataSet}}"/>
+
+    </Window.Resources>
+    <Grid  Margin="0,-2,0,2" DataContext="{StaticResource charityViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="354,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.394,-1.641" Height="0" Width="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Height="32" Margin="0,370,0,0" VerticalAlignment="Top" Background="Black">
+            <Label Content="18 дней 8 часов и 17 минут до старта марафона!" HorizontalAlignment="Left" Foreground="White" Margin="92,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="484" Background="Black">
+            <Button Content="Назад" Background="Gray"  HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.569,0.45" Click="Button_Click"/>
+            <Label Content="MARATHON SKILLS 2020" Foreground="White" HorizontalAlignment="Left" Margin="158,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,-0.064"/>
+        </Grid>
+        <DataGrid x:Name="charityDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,36,10,122" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="charityIdColumn" Binding="{Binding CharityId}" Header="Charity Id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="charityNameColumn" Header="Charity Name" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding CharityName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="charityDescriptionColumn" Header="Charity Description" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding CharityDescription}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="charityLogoColumn" Header="Charity Logo" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="Imgchar"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -46,17 +46,8 @@ namespace WpfApp1
 
         private void timerTick(object sender, EventArgs e)
         {
-            DateTime nn = DateTime.Now;
-            DateTime n1 = Convert.ToDateTime("10.12.2020 18:30:25");
-            int day = n1.Day - nn.Day;
-            int min = (n1.Hour * 60 + n1.Minute) - (nn.Hour * 60 + nn.Minute);
-            int hour=0;
-            while(min>60)
-            {
-                min -= 60;
-                hour++;
-            }
-            LabelTime.Content = $"{day} дней {hour} часов и {min} минут до старта марафона!";
+            TimeSpan datet = Perem.datetim();
+            LabelTime.Content = $"{datet.Days} дней {datet.Hours} часов и {datet.Minutes} минут до старта марафона!";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

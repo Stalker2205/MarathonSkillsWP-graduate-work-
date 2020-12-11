@@ -52,7 +52,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Image  Name="ImgGlav"  HorizontalAlignment="Stretch" Stretch="Uniform" Width="228"/>
+            <Image  Name="ImgGlav"  HorizontalAlignment="Stretch" Stretch="Uniform" Width="228" MouseLeftButtonDown="ImgGlav_MouseLeftButtonDown"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="63*"/>

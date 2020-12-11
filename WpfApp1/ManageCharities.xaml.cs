@@ -20,9 +20,9 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class RegisterAsARunner : Window
+    public partial class ManageCharities : Window
     {
-        public RegisterAsARunner()
+        public ManageCharities()
         {
             InitializeComponent();
         }
@@ -30,6 +30,12 @@ namespace WpfApp1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timerStart();
+            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+            // Загрузить данные в таблицу Charity. Можно изменить этот код как требуется.
+            WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
+            marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
+            System.Windows.Data.CollectionViewSource charityViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("charityViewSource")));
+            charityViewSource.View.MoveCurrentToFirst();
         }
         private DispatcherTimer timer = null;
 
@@ -49,13 +55,6 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NewRunner newRunner = new NewRunner();
-            newRunner.Show();
             Close();
         }
     }
