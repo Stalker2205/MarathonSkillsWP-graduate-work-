@@ -4,10 +4,45 @@ using System.Text;
 
 namespace Libra
 {
-    class Charity
+    public class Charity
     {
-        public string Name { get; set; }
-        public string Discription { get; set; }
-        public string Logo { get; set; }
+        private int _id;
+        private string _name;
+        private string _discription;
+
+        public int ID1
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+        public string Name1
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+        public string Discription1
+        {
+            get
+            {
+                return _discription;
+            }
+
+            set
+            {
+                _discription = value;
+            }
+        }
     }
 }

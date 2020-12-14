@@ -14,29 +14,35 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Windows.Threading;
-using Libra;
+using Microsoft.Win32;
 
 namespace WpfApp1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class ManageCharities : Window
+    public partial class AddOrEditCharity : Window
     {
-        public ManageCharities()
+        public AddOrEditCharity()
         {
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
             timerStart();
-            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(FindResource("marathonDataSet")));
             // Загрузить данные в таблицу Charity. Можно изменить этот код как требуется.
             WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
             marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
+            marathonDataSetCharityTableAdapter.SerchID(marathonDataSet.Charity,Perem.CharityID);
             System.Windows.Data.CollectionViewSource charityViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("charityViewSource")));
             charityViewSource.View.MoveCurrentToFirst();
+            LogoImg.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + charityLogoTextBox.Text, UriKind.Absolute));
+            charityLogoTextBox.Text = "";
+            
+            
         }
         private DispatcherTimer timer = null;
 
@@ -59,27 +65,18 @@ namespace WpfApp1
             Close();
         }
 
-        private void Details_Click(object sender, RoutedEventArgs e)
+        private void ViewButton_Click(object sender, RoutedEventArgs e)
         {
-            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
-
-                if (vis is DataGridRow)
-                {
-                    Libra.Charity charity = new Libra.Charity();
-                    var Selectedsell = this.charityDataGrid.Columns[0].GetCellContent(this.charityDataGrid.SelectedItem);
-                    string Cell = Selectedsell.Parent.ToString();
-                    string koll = "System.Windows.Controls.DataGridCell: ";
-                    Cell = Cell.Remove(0, koll.Length);
-                    Cell = Cell.Replace(" ", "");
-                    Perem.CharityID = Convert.ToInt32(Cell);
-                    AddOrEditCharity addOrEditCharity = new AddOrEditCharity();
-                    addOrEditCharity.ShowDialog();
-                    WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
-                    // Загрузить данные в таблицу Charity. Можно изменить этот код как требуется.
-                    WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
-                    marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
-
-                }
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Files|*.jpg;*.jpeg;*.png;";
+            if (Convert.ToBoolean( openFile.ShowDialog()))
+            {
+                string FilePath = openFile.FileName;
+                string FileName = openFile.SafeFileName;
+                System.IO.File.Copy(FilePath, AppDomain.CurrentDomain.BaseDirectory + FileName);
+                LogoImg.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + FileName, UriKind.Absolute));
+                charityLogoTextBox.Text = FileName;
+            }
         }
     }
 }

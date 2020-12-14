@@ -67,6 +67,9 @@
     <Compile Include="Admin\NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddOrEditCharity.xaml.cs">
+      <DependentUpon>AddOrEditCharity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManageCharities.xaml.cs">
       <DependentUpon>ManageCharities.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Admin\NewInventory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddOrEditCharity.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

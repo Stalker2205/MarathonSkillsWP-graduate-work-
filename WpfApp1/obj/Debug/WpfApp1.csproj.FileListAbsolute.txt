@@ -64,3 +64,5 @@ C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Marathon\InteractMap.g
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Marathon\InteractMap.baml
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\ManageCharities.g.cs
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\ManageCharities.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\AddOrEditCharity.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\AddOrEditCharity.baml
