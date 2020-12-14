@@ -1,0 +1,9 @@
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\bin\Debug\netstandard2.0\Libra.deps.json
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\bin\Debug\netstandard2.0\Libra.dll
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\bin\Debug\netstandard2.0\Libra.pdb
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\obj\Debug\netstandard2.0\Libra.csprojAssemblyReference.cache
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\obj\Debug\netstandard2.0\Libra.AssemblyInfoInputs.cache
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\obj\Debug\netstandard2.0\Libra.AssemblyInfo.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\obj\Debug\netstandard2.0\Libra.csproj.CoreCompileInputs.cache
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\obj\Debug\netstandard2.0\Libra.dll
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\Libra\obj\Debug\netstandard2.0\Libra.pdb
