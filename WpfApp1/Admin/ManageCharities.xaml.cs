@@ -27,7 +27,7 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
-
+    
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timerStart();
@@ -61,25 +61,40 @@ namespace WpfApp1
 
         private void Details_Click(object sender, RoutedEventArgs e)
         {
+            Perem.key = 0;
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
 
                 if (vis is DataGridRow)
                 {
-                    Libra.Charity charity = new Libra.Charity();
-                    var Selectedsell = this.charityDataGrid.Columns[0].GetCellContent(this.charityDataGrid.SelectedItem);
-                    string Cell = Selectedsell.Parent.ToString();
-                    string koll = "System.Windows.Controls.DataGridCell: ";
-                    Cell = Cell.Remove(0, koll.Length);
-                    Cell = Cell.Replace(" ", "");
-                    Perem.CharityID = Convert.ToInt32(Cell);
-                    AddOrEditCharity addOrEditCharity = new AddOrEditCharity();
-                    addOrEditCharity.ShowDialog();
-                    WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
-                    // Загрузить данные в таблицу Charity. Можно изменить этот код как требуется.
-                    WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
-                    marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
+                    try
+                    {
+                        Libra.Charity charity = new Libra.Charity();
+                        var Selectedsell = this.charityDataGrid.Columns[0].GetCellContent(this.charityDataGrid.SelectedItem);
+                        string Cell = Selectedsell.Parent.ToString();
+                        string koll = "System.Windows.Controls.DataGridCell: ";
+                        Cell = Cell.Remove(0, koll.Length);
+                        Cell = Cell.Replace(" ", "");
+                        Perem.CharityID = Convert.ToInt32(Cell);
+                        AddOrEditCharity addOrEditCharity = new AddOrEditCharity();
+                        addOrEditCharity.ShowDialog();
+                        WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+                        // Загрузить данные в таблицу Charity. Можно изменить этот код как требуется.
+                        WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
+                        marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
+                    }
+                    catch { MessageBox.Show("Вы не можите открыть запись которой нет");return; }
 
                 }
+        }
+
+        private void CreateCharities_Click(object sender, RoutedEventArgs e)
+        {
+            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
+            Perem.key = 1;
+            AddOrEditCharity addOrEditCharity = new AddOrEditCharity();
+            addOrEditCharity.ShowDialog();
+            WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
+            marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
         }
     }
 }

@@ -70,7 +70,8 @@ namespace WpfApp1
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            login.ShowDialog();
+            login.Show();
+            Close();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -82,8 +83,10 @@ namespace WpfApp1
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            ManageCharities manageCharities = new ManageCharities();
-            manageCharities.ShowDialog();
+            VolounteerManagement volounteerManagement = new VolounteerManagement();
+            volounteerManagement.ShowDialog();
+            //Window1 window1 = new Window1();
+            //window1.ShowDialog();
         }
     }
 }

@@ -75,5 +75,11 @@ namespace WpfApp1
             RegisterForAnEvent registerForAn = new RegisterForAnEvent();
             registerForAn.ShowDialog();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            MySponsor mySponsor = new MySponsor();
+            mySponsor.ShowDialog();
+        }
     }
 }

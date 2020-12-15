@@ -50,6 +50,8 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             Close();
         }
 
@@ -81,8 +83,6 @@ namespace WpfApp1
                         AdminMenu adminMenu = new AdminMenu();
                         adminMenu.Show();
                         Close();
-                        MessageBox.Show("Default case");
-
                         break;
                     }
                 case "K"://Координатор
@@ -95,7 +95,7 @@ namespace WpfApp1
                     }
                 default:
                     {
-
+                        MessageBox.Show("Default case");
                         break;
                     }
             }

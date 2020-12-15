@@ -39,7 +39,7 @@
             <Button Content="Редактирование профиля" HorizontalAlignment="Left" Margin="36,98,0,0" VerticalAlignment="Top" Width="165" Height="70" Click="Button_Click_3"/>
             <Button Content="Контакты" HorizontalAlignment="Left" Margin="36,173,0,0" VerticalAlignment="Top" Width="165" Height="70" Click="Button_Click_1"/>
             <Button Content="Мои результаты" HorizontalAlignment="Left" Margin="271,21,0,0" VerticalAlignment="Top" Width="165" Height="70" Click="Button_Click_2"/>
-            <Button Content="Мой спонсор" HorizontalAlignment="Left" Margin="271,98,0,0" VerticalAlignment="Top" Width="165" Height="70"/>
+            <Button Content="Мой спонсор" HorizontalAlignment="Left" Margin="271,98,0,0" VerticalAlignment="Top" Width="165" Height="70" Click="Button_Click_5"/>
         </Grid>
     </Grid>
 </Window>

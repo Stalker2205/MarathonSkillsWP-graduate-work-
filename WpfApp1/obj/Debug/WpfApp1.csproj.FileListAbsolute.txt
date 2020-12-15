@@ -62,7 +62,11 @@ C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\NewInventory.g.c
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\NewInventory.baml
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Marathon\InteractMap.g.cs
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Marathon\InteractMap.baml
-C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\ManageCharities.g.cs
-C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\ManageCharities.baml
-C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\AddOrEditCharity.g.cs
-C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\AddOrEditCharity.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\AddOrEditCharity.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\ManageCharities.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\AddOrEditCharity.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\ManageCharities.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\VolounteerManagement.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Admin\VolounteerManagement.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\MySponsor.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\MySponsor.baml

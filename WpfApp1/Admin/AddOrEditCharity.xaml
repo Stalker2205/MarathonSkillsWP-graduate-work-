@@ -79,7 +79,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="логотип:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="charityLogoTextBox"  Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CharityLogo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="charityLogoTextBox" IsEnabled="False"  Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CharityLogo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
         <Grid x:Name="grid4" HorizontalAlignment="Left" Margin="1,0,0,4" Grid.Row="2" Width="232" Grid.RowSpan="5">
             <Grid.ColumnDefinitions>
@@ -90,7 +90,7 @@
             </Grid.RowDefinitions>
             <TextBox x:Name="charityDescriptionTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Height="250" Margin="10,0,0,-215" Grid.Row="0" Text="{Binding CharityDescription, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="222"/>
         </Grid>
-        <Button Grid.ColumnSpan="2" Content="Сохранить" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75"/>
-        <Button Grid.ColumnSpan="2" Content="Отмена" Grid.Column="2" HorizontalAlignment="Left" Margin="28,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75"/>
+        <Button Grid.ColumnSpan="2" Content="Сохранить" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button x:Name="CloseForm" Click="CloseForm_Click" Grid.ColumnSpan="2" Content="Отмена" Grid.Column="2" HorizontalAlignment="Left" Margin="28,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

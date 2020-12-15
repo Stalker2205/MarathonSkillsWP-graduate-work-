@@ -14,35 +14,43 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Windows.Threading;
-using Microsoft.Win32;
 
 namespace WpfApp1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class AddOrEditCharity : Window
+    public partial class MySponsor : Window
     {
-        public AddOrEditCharity()
+        public MySponsor()
         {
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
             timerStart();
-            WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(FindResource("marathonDataSet")));
+            marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
             // Загрузить данные в таблицу Charity. Можно изменить этот код как требуется.
             WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter marathonDataSetCharityTableAdapter = new WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter();
             marathonDataSetCharityTableAdapter.Fill(marathonDataSet.Charity);
-            marathonDataSetCharityTableAdapter.SerchID(marathonDataSet.Charity,Perem.CharityID);
             System.Windows.Data.CollectionViewSource charityViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("charityViewSource")));
             charityViewSource.View.MoveCurrentToFirst();
-            LogoImg.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + charityLogoTextBox.Text, UriKind.Absolute));
-            charityLogoTextBox.Text = "";
-            
-            
+            // TODO: Добавить сюда код, чтобы загрузить данные в таблицу MySponsor.
+            // Не удалось создать этот код, поскольку метод marathonDataSetMySponsorTableAdapter.Fill отсутствует или имеет неизвестные параметры.
+            WpfApp1.marathonDataSetTableAdapters.MySponsorTableAdapter marathonDataSetMySponsorTableAdapter = new WpfApp1.marathonDataSetTableAdapters.MySponsorTableAdapter();
+            marathonDataSetMySponsorTableAdapter.SumAmount(Convert.ToInt32(Libra.Runner.ID));//посчитали сколько всего пожертвований
+            SumAmountTbox.Text = $"${Convert.ToString( marathonDataSetMySponsorTableAdapter.SumAmount(Convert.ToInt32(Libra.Runner.ID)))}";
+            marathonDataSetMySponsorTableAdapter.Fill(marathonDataSet.MySponsor,Convert.ToInt32( Libra.Runner.ID));//заполняем таблицу на бегуна
+            System.Windows.Data.CollectionViewSource mySponsorViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("mySponsorViewSource")));
+            mySponsorViewSource.View.MoveCurrentToFirst();
+
+            int kod = Convert.ToInt32(marathonDataSet.MySponsor[0][1].ToString());
+            marathonDataSetCharityTableAdapter.SerchID(marathonDataSet.Charity,kod );
+            CharitiNameTbox.Text =Convert.ToString( marathonDataSet.Charity[0][1]);
+            CharityLogoImg.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + marathonDataSet.Charity[0][3].ToString(), UriKind.Absolute));
+            charityDescriptionTextBlock.Text = Convert.ToString(marathonDataSet.Charity[0][2]);
+
         }
         private DispatcherTimer timer = null;
 
@@ -63,20 +71,6 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void ViewButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "Files|*.jpg;*.jpeg;*.png;";
-            if (Convert.ToBoolean( openFile.ShowDialog()))
-            {
-                string FilePath = openFile.FileName;
-                string FileName = openFile.SafeFileName;
-                System.IO.File.Copy(FilePath, AppDomain.CurrentDomain.BaseDirectory + FileName);
-                LogoImg.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + FileName, UriKind.Absolute));
-                charityLogoTextBox.Text = FileName;
-            }
         }
     }
 }

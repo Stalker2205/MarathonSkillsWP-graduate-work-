@@ -49,6 +49,8 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             Close();
         }
 
@@ -61,6 +63,18 @@ namespace WpfApp1
         {
             Inventory inventory = new Inventory();
             inventory.ShowDialog();
+        }
+
+        private void Chariti_Click(object sender, RoutedEventArgs e)
+        {
+            ManageCharities manageCharities = new ManageCharities();
+            manageCharities.ShowDialog();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            VolounteerManagement volounteerManagement = new VolounteerManagement();
+            volounteerManagement.ShowDialog();
         }
     }
 }

@@ -67,11 +67,17 @@
     <Compile Include="Admin\NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddOrEditCharity.xaml.cs">
+    <Compile Include="Admin\AddOrEditCharity.xaml.cs">
       <DependentUpon>AddOrEditCharity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageCharities.xaml.cs">
+    <Compile Include="Admin\ManageCharities.xaml.cs">
       <DependentUpon>ManageCharities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\VolounteerManagement.xaml.cs">
+      <DependentUpon>VolounteerManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MySponsor.xaml.cs">
+      <DependentUpon>MySponsor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Marathon\InteractMap.xaml.cs">
       <DependentUpon>InteractMap.xaml</DependentUpon>
@@ -148,11 +154,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AddOrEditCharity.xaml">
+    <Page Include="Admin\AddOrEditCharity.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ManageCharities.xaml">
+    <Page Include="Admin\ManageCharities.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\VolounteerManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MySponsor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
