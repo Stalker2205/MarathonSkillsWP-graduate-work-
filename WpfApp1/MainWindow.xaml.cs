@@ -83,10 +83,8 @@ namespace WpfApp1
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            VolounteerManagement volounteerManagement = new VolounteerManagement();
-            volounteerManagement.ShowDialog();
-            //Window1 window1 = new Window1();
-            //window1.ShowDialog();
+            PreviousRaceResult previousRaceResult = new PreviousRaceResult();
+            previousRaceResult.ShowDialog();
         }
     }
 }

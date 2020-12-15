@@ -76,6 +76,9 @@
     <Compile Include="Admin\VolounteerManagement.xaml.cs">
       <DependentUpon>VolounteerManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PreviousRaceResult.xaml.cs">
+      <DependentUpon>PreviousRaceResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Runner\MySponsor.xaml.cs">
       <DependentUpon>MySponsor.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Admin\VolounteerManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PreviousRaceResult.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
