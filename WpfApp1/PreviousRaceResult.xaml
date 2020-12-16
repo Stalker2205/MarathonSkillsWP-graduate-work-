@@ -59,24 +59,20 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
         </Grid>
-        <Grid x:Name="grid3" DataContext="{StaticResource runnerViewSource}" HorizontalAlignment="Left" Margin="295,36,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid3" DataContext="{StaticResource runnerViewSource}" HorizontalAlignment="Left" Margin="295,36,0,0" VerticalAlignment="Top" Width="172">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="0"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="32"/>
             </Grid.RowDefinitions>
-            <Label Content="Пол:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <ComboBox x:Name="genderComboBox" Grid.Column="1" DisplayMemberPath="Gender" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120">
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
+            <Label Content="Пол:" Grid.Column="0" Margin="0,3,-34,3" Grid.Row="0" VerticalAlignment="Center"/>
+            <ComboBox DropDownClosed="ComboBox_DropDownClosed" Name="GenderCbox" HorizontalAlignment="Left" Margin="35,7,-151,0" VerticalAlignment="Top" Width="117">
+                <ComboBoxItem Content="Male" HorizontalAlignment="Left" Width="118"/>
+                <ComboBoxItem Content="Female" HorizontalAlignment="Left" Width="118"/>
             </ComboBox>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Всего бегунов: 6546546" IsEnabled="False" VerticalAlignment="Top" Width="176" RenderTransformOrigin="0.5,0.5">
+        <TextBlock HorizontalAlignment="Left" x:Name="AllRunnerTbox" Margin="16,68,0,0" TextWrapping="Wrap" Text="Всего бегунов: 6546546" IsEnabled="False" VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -86,6 +82,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="195,68,0,0" TextWrapping="Wrap" Text="Всего финишировало: 46546" IsEnabled="False"  VerticalAlignment="Top" RenderTransformOrigin="0.309,1.111" Width="208"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="FinishedRunnerTbox" Margin="184,68,0,0" TextWrapping="Wrap" Text="Всего финишировало: 46546" IsEnabled="False"  VerticalAlignment="Top" RenderTransformOrigin="0.309,1.111" Width="163"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="AvgTime" IsEnabled="False" Margin="16,91,0,0" TextWrapping="Wrap" Text="Среднее время: " VerticalAlignment="Top" Width="149"/>
     </Grid>
 </Window>

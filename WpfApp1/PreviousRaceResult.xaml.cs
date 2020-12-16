@@ -34,7 +34,7 @@ namespace WpfApp1
             // TODO: Добавить сюда код, чтобы загрузить данные в таблицу AllMarathon.
             // Не удалось создать этот код, поскольку метод marathonDataSetAllMarathonTableAdapter.Fill отсутствует или имеет неизвестные параметры.
             WpfApp1.marathonDataSetTableAdapters.AllMarathonTableAdapter marathonDataSetAllMarathonTableAdapter = new WpfApp1.marathonDataSetTableAdapters.AllMarathonTableAdapter();
-            marathonDataSetAllMarathonTableAdapter.Fill(marathonDataSet.AllMarathon, marathonNameComboBox.Text);
+            marathonDataSetAllMarathonTableAdapter.Fill(marathonDataSet.AllMarathon, "Marathon Skills 2012");
             System.Windows.Data.CollectionViewSource allMarathonViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("allMarathonViewSource")));
             allMarathonViewSource.View.MoveCurrentToFirst();
             // Загрузить данные в таблицу Marathon. Можно изменить этот код как требуется.
@@ -57,6 +57,10 @@ namespace WpfApp1
             marathonDataSetRunnerTableAdapter2.Fill(marathonDataSet.Runner);
             System.Windows.Data.CollectionViewSource runnerViewSource2 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("runnerViewSource")));
             runnerViewSource2.View.MoveCurrentToFirst();
+            marathonNameComboBox.Text = "Marathon Skills 2012";
+            AllRunnerTbox.Text = $"Всего бегунов: {marathonDataSetAllMarathonTableAdapter.KolvoAll("Marathon Skills 2012")}";
+            FinishedRunnerTbox.Text = $"Всего финишировало:{marathonDataSetAllMarathonTableAdapter.KolvoFinished("Marathon Skills 2012")}";
+            AvgTime.Text = $"Среднее время: {marathonDataSetAllMarathonTableAdapter.SrednVremy("Marathon Skills 2012")} ";
         }
         private DispatcherTimer timer = null;
 
@@ -88,6 +92,19 @@ namespace WpfApp1
             marathonDataSetAllMarathonTableAdapter.Fill(marathonDataSet.AllMarathon, marathonNameComboBox.Text);
             System.Windows.Data.CollectionViewSource allMarathonViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("allMarathonViewSource")));
             allMarathonViewSource.View.MoveCurrentToFirst();
+            AllRunnerTbox.Text = $"Всего бегунов: {marathonDataSetAllMarathonTableAdapter.KolvoAll(marathonNameComboBox.Text)}";
+            FinishedRunnerTbox.Text = $"Всего финишировало:{marathonDataSetAllMarathonTableAdapter.KolvoFinished(marathonNameComboBox.Text)}";
+            AvgTime.Text = $"Среднее время: {marathonDataSetAllMarathonTableAdapter.SrednVremy(marathonNameComboBox.Text)} ";
+        }
+
+        private void ComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+
+            marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
+            // TODO: Добавить сюда код, чтобы загрузить данные в таблицу AllMarathon.
+            // Не удалось создать этот код, поскольку метод marathonDataSetAllMarathonTableAdapter.Fill отсутствует или имеет неизвестные параметры.
+            WpfApp1.marathonDataSetTableAdapters.AllMarathonTableAdapter marathonDataSetAllMarathonTableAdapter = new WpfApp1.marathonDataSetTableAdapters.AllMarathonTableAdapter();
+            marathonDataSetAllMarathonTableAdapter.SerchGender(marathonDataSet.AllMarathon, marathonNameComboBox.Text, GenderCbox.Text);
         }
     }
 }

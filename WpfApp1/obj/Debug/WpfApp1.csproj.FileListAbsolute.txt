@@ -72,3 +72,5 @@ C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Runner\MySponsor.g.cs
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Runner\MySponsor.baml
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\PreviousRaceResult.g.cs
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\PreviousRaceResult.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\RunnerManagement.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\RunnerManagement.baml

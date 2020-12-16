@@ -66,5 +66,11 @@ namespace WpfApp1
             AboutMarathon aboutMarathon = new AboutMarathon();
             aboutMarathon.ShowDialog();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            PreviousRaceResult previousRaceResult = new PreviousRaceResult();
+            previousRaceResult.ShowDialog();
+        }
     }
 }

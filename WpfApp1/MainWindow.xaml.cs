@@ -83,8 +83,8 @@ namespace WpfApp1
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            PreviousRaceResult previousRaceResult = new PreviousRaceResult();
-            previousRaceResult.ShowDialog();
+            RunnerManagement runnerManagement = new RunnerManagement();
+            runnerManagement.ShowDialog();
         }
     }
 }

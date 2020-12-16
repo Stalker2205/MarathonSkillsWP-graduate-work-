@@ -4,6 +4,10 @@
 
     public partial class marathonDataSet
     {
+        partial class RunnerManagDataTable
+        {
+        }
+
         partial class Registration1DataTable
         {
         }

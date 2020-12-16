@@ -17,6 +17,7 @@ namespace WpfApp1
         public static string PhotoName;
         public static int CharityID;
         public static int key = 0;
+        public static List<string> list = new List<string>();
         private static DateTime Starting = Convert.ToDateTime("01.01.2021 18:30:25");
         public static TimeSpan datetim()
         {
