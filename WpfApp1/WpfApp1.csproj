@@ -76,10 +76,13 @@
     <Compile Include="Admin\VolounteerManagement.xaml.cs">
       <DependentUpon>VolounteerManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="List.xaml.cs">
-      <DependentUpon>List.xaml</DependentUpon>
+    <Compile Include="ManageARunner.xaml.cs">
+      <DependentUpon>ManageARunner.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RunnerManagement.xaml.cs">
+    <Compile Include="Coordinator\Listik.xaml.cs">
+      <DependentUpon>Listik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\RunnerManagement.xaml.cs">
       <DependentUpon>RunnerManagement.xaml</DependentUpon>
     </Compile>
     <Compile Include="PreviousRaceResult.xaml.cs">
@@ -175,11 +178,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="List.xaml">
+    <Page Include="ManageARunner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Coordinator\Listik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RunnerManagement.xaml">
+    <Page Include="Coordinator\RunnerManagement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

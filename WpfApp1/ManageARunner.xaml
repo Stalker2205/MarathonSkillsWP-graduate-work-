@@ -1,0 +1,153 @@
+﻿<Window x:Class="WpfApp1.ManageARunner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ManageARunner" Height="497.667" Width="837.5" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+        <CollectionViewSource x:Key="manageArunnerGridViewSource" Source="{Binding ManageArunnerGrid, Source={StaticResource marathonDataSet}}"/>
+
+    </Window.Resources>
+    <Grid  Margin="0,-2,0,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="272*"/>
+            <ColumnDefinition Width="143*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="88*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="354,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.394,-1.641" Height="0" Width="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Height="32" Margin="0,375,0,0" VerticalAlignment="Top" Background="Black" Grid.Row="1" Grid.ColumnSpan="2">
+            <Label Content="18 дней 8 часов и 17 минут до старта марафона!" Foreground="White" Margin="195,0,124,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
+        </Grid>
+        <Grid Height="31" VerticalAlignment="Top" Background="Black" Grid.ColumnSpan="2">
+            <Button Content="Назад" Background="Gray"  HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.569,0.45" Click="Button_Click"/>
+            <TextBlock Margin="91,5,10,6" TextWrapping="Wrap" Text="MARATHON SKILLS 2020" Foreground="White" TextAlignment="Center" IsEnabled="False"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="Управление бегуном" TextAlignment="Center" IsEnabled="False" Width="820" Grid.ColumnSpan="2"/>
+        <Grid x:Name="grid2" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="72,5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="173">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Email:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="emailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="43,42,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="202">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="First Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="firstNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="44,79,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="201">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid5" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="62,116,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="183">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="genderTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid6" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="51,153,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="194">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Date Of Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <DatePicker x:Name="dateOfBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding DateOfBirth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid7" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="23,190,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="222">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Country Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="countryNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CountryName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid8" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="28,227,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="217">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Charity Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="charityNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CharityName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid9" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="11,264,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="234">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Sponsor Amount:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="sponsorAmountTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding SponsorAmount, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid10" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="18,301,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="227">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Race Kit Option:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="raceKitOptionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding RaceKitOption, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid11" DataContext="{StaticResource manageArunnerGridViewSource}" HorizontalAlignment="Left" Margin="8,338,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="237">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Event Type Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="eventTypeNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding EventTypeName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Image Height="252" Margin="254,11,12,0" x:Name="FofoImg" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Регистрационный статус" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top" Height="27" Width="151"/>
+    </Grid>
+</Window>

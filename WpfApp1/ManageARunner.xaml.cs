@@ -20,9 +20,9 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class CoordinatorMenu : Window
+    public partial class ManageARunner : Window
     {
-        public CoordinatorMenu()
+        public ManageARunner()
         {
             InitializeComponent();
         }
@@ -30,6 +30,11 @@ namespace WpfApp1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timerStart();
+            // Загрузить данные в таблицу ManageArunnerGrid. Можно изменить этот код как требуется.
+            WpfApp1.marathonDataSetTableAdapters.ManageArunnerGridTableAdapter marathonDataSetManageArunnerGridTableAdapter = new WpfApp1.marathonDataSetTableAdapters.ManageArunnerGridTableAdapter();
+            marathonDataSetManageArunnerGridTableAdapter.Fill(marathonDataSet.ManageArunnerGrid);
+            System.Windows.Data.CollectionViewSource manageArunnerGridViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("manageArunnerGridViewSource")));
+            manageArunnerGridViewSource.View.MoveCurrentToFirst();
         }
         private DispatcherTimer timer = null;
 
@@ -50,13 +55,6 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            RunnerManagement runnerManagement = new RunnerManagement();
-            runnerManagement.ShowDialog();
-
         }
     }
 }

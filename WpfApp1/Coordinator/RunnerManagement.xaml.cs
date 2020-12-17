@@ -105,15 +105,16 @@ namespace WpfApp1
             {
                 if (saveFileDialog.ShowDialog() == true)
                 {
-                    MessageBox.Show("Внимание!, если записей много - это может занять некоторое время, дождитесь подсказки: 'Выгружено'");
+                    StreamWriter OutFile = new StreamWriter(saveFileDialog.FileName);
+                    MessageBox.Show("Внимание!, если записей много - это может занять некоторое время, дождитесь подсказки: 'Выгружено'"); 
                     for (int i = 0; i < marathonDataSet.RunnerManag.Count; i++)
                     {
 
-                        Cont = marathonDataSet.RunnerManag[i][0].ToString() + "," + marathonDataSet.RunnerManag[i][1].ToString() + "," + marathonDataSet.RunnerManag[i][2].ToString() + "," +
-                            marathonDataSet.RunnerManag[i][4].ToString() + "\n";
-                        File.AppendAllText(saveFileDialog.FileName, Cont);
+                        OutFile.WriteLine(  marathonDataSet.RunnerManag[i][0].ToString() + "," + marathonDataSet.RunnerManag[i][1].ToString() + "," + marathonDataSet.RunnerManag[i][2].ToString() + "," +
+                            marathonDataSet.RunnerManag[i][4].ToString() + "\n");
                     }
                     MessageBox.Show("Выгружено");
+                    OutFile.Close();
 
                 }
             }
@@ -128,10 +129,15 @@ namespace WpfApp1
             string cons;
             for (int i = 0; i < marathonDataSet.RunnerManag.Count; i++)
             {
-
                 Perem.list.Add(marathonDataSet.RunnerManag[i][0].ToString() + ","+ marathonDataSet.RunnerManag[i][1].ToString() + ","+ marathonDataSet.RunnerManag[i][2].ToString() + ";"+"\n");
             }
-            MessageBox.Show("Выгружено");
+            Listik list = new Listik();
+            list.ShowDialog();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Libra.Runner.Email = sender.ToString().Remove(0, 32).Trim();
         }
     }
 }

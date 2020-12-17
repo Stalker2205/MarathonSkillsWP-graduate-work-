@@ -17,16 +17,17 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для List.xaml
     /// </summary>
-    public partial class List : Window
+    public partial class Listik : Window
     {
-        public List()
+        public Listik()
         {
+            string string1 = "";
             InitializeComponent();
             for (int i = 0; i < Perem.list.Count; i++)
             {
-
+                string1 = string1 + Perem.list[i] + "\n";
             }
-            
+            Tbox1.Text = string1;
         }
     }
 }
