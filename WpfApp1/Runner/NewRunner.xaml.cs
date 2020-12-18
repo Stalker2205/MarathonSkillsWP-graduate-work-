@@ -1,4 +1,4 @@
-﻿        using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -118,15 +118,17 @@ namespace WpfApp1
             WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
             WpfApp1.marathonDataSetTableAdapters.RunnerTableAdapter runnerTableAdapter = new marathonDataSetTableAdapters.RunnerTableAdapter();
             WpfApp1.marathonDataSetTableAdapters.UserTableAdapter userTableAdapter = new marathonDataSetTableAdapters.UserTableAdapter();
+            WpfApp1.marathonDataSetTableAdapters.RegistrationTableAdapter registrationTableAdapter = new marathonDataSetTableAdapters.RegistrationTableAdapter();
             runnerTableAdapter.SerchEmail(marathonDataSet.Runner, TboxMail.Text);
-            if(marathonDataSet.Runner.Count != 0) { MessageBox.Show("Такой Ьаил уже зарегестрироывн");return; }
+            if (marathonDataSet.Runner.Count != 0) { MessageBox.Show("Такой Mаил уже зарегестрироывн"); return; }
             userTableAdapter.InsertUser(TboxMail.Text, TboxPass.Text, TboxFirstName.Text, TboxSecondName.Text, "R");
             runnerTableAdapter.InserеRunner(TboxMail.Text, genderComboBox.Text, DateOfbirth.SelectedDate, countryCodeTextBox.Text, fotoname.Text);
-            RegisterForAnEvent registerForAnEvent = new RegisterForAnEvent();
+            runnerTableAdapter.SerchEmail(marathonDataSet.Runner, TboxMail.Text);
             Runner.CountryCode = countryCodeTextBox.Text;
             Runner.Email = TboxMail.Text;
             Runner.Gender = genderComboBox.Text;
             Runner.Photo = fotoname.Text;
+            RegisterForAnEvent registerForAnEvent = new RegisterForAnEvent();
             registerForAnEvent.Show();
             Close();
         }

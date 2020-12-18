@@ -23,6 +23,7 @@ namespace WpfApp1
     /// </summary>
     public partial class RegisterForAnEvent : Window
     {
+        string EventID;
         public RegisterForAnEvent()
         {
             InitializeComponent();
@@ -65,6 +66,7 @@ namespace WpfApp1
             WpfApp1.marathonDataSetTableAdapters.RunnerTableAdapter runnerTableAdapter = new marathonDataSetTableAdapters.RunnerTableAdapter();
             WpfApp1.marathonDataSetTableAdapters.RegistrationTableAdapter registrationTableAdapter = new marathonDataSetTableAdapters.RegistrationTableAdapter();
             WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter charityTableAdapter = new marathonDataSetTableAdapters.CharityTableAdapter();
+            WpfApp1.marathonDataSetTableAdapters.RegistrationEventTableAdapter registrationEventTableAdapter = new marathonDataSetTableAdapters.RegistrationEventTableAdapter();
             if (!(bool)KM32.IsChecked && !(bool)KM23.IsChecked && !(bool)KM5.IsChecked)
             {
                 MessageBox.Show("Выберите хотя бы 1 дистанцию"); return;
@@ -86,6 +88,7 @@ namespace WpfApp1
                 registrationTableAdapter.InsertReg(runnerid, DateTime.Now, variant, 1, priceAll,Convert.ToInt32( marathonDataSet.Charity[0][0].ToString()),Convert.ToDecimal( Price.Text));
             }
             registrationTableAdapter.InsertReg(runnerid, DateTime.Now, variant, 2, priceAll, Convert.ToInt32(marathonDataSet.Charity[0][0].ToString()), Convert.ToDecimal(priceAll));
+          //  registrationEventTableAdapter.InsertEvent(, EventID,null,null);
             RegistrationConfirmation registrationConfirmation = new RegistrationConfirmation();
             registrationConfirmation.Show();
             Close();
@@ -95,18 +98,21 @@ namespace WpfApp1
         {
             if (Convert.ToBoolean(KM32.IsChecked)) { priceAll += 145; } else { priceAll -= 145; }
             Price.Text = $"${priceAll}";
+            EventID = "FM"; 
         }
 
         private void KM23_Click(object sender, RoutedEventArgs e)
         {
             if (Convert.ToBoolean(KM23.IsChecked)) { priceAll += 75; } else { priceAll -= 75; }
             Price.Text = $"${priceAll}";
+            EventID = "FR";
         }
 
         private void KM5_Click(object sender, RoutedEventArgs e)
         {
             if (Convert.ToBoolean(KM5.IsChecked)) { priceAll += 20; } else { priceAll -= 20; }
             Price.Text = $"${priceAll}";
+            EventID = "HM";
         }
         String variant = "A";
         private void VarA_Click(object sender, RoutedEventArgs e)

@@ -76,7 +76,7 @@
     <Compile Include="Admin\VolounteerManagement.xaml.cs">
       <DependentUpon>VolounteerManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageARunner.xaml.cs">
+    <Compile Include="Coordinator\ManageARunner.xaml.cs">
       <DependentUpon>ManageARunner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Coordinator\Listik.xaml.cs">
@@ -178,7 +178,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ManageARunner.xaml">
+    <Page Include="Coordinator\ManageARunner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

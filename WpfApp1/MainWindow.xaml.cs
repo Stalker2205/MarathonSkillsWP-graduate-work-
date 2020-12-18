@@ -83,8 +83,8 @@ namespace WpfApp1
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            RunnerManagement runnerManagement = new RunnerManagement();
-            runnerManagement.ShowDialog();
+            CoordinatorMenu coordinatorMenu = new CoordinatorMenu();
+            coordinatorMenu.ShowDialog();
         }
     }
 }

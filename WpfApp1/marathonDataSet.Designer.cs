@@ -10088,6 +10088,12 @@ namespace WpfApp1 {
             
             private global::System.Data.DataColumn columnPhoto;
             
+            private global::System.Data.DataColumn columnRegistrationStatusId;
+            
+            private global::System.Data.DataColumn columnRegistrationStatusId1;
+            
+            private global::System.Data.DataColumn columnRegistrationId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ManageArunnerGridDataTable() {
@@ -10211,6 +10217,30 @@ namespace WpfApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RegistrationStatusIdColumn {
+                get {
+                    return this.columnRegistrationStatusId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RegistrationStatusId1Column {
+                get {
+                    return this.columnRegistrationStatusId1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RegistrationIdColumn {
+                get {
+                    return this.columnRegistrationId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -10246,7 +10276,7 @@ namespace WpfApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ManageArunnerGridRow AddManageArunnerGridRow(string Email, string FirstName, string LastName, string Gender, System.DateTime DateOfBirth, string CountryName, string CharityName, decimal SponsorAmount, string RaceKitOption, string EventTypeName, string Photo) {
+            public ManageArunnerGridRow AddManageArunnerGridRow(string Email, string FirstName, string LastName, string Gender, System.DateTime DateOfBirth, string CountryName, string CharityName, decimal SponsorAmount, string RaceKitOption, string EventTypeName, string Photo, int RegistrationStatusId, byte RegistrationStatusId1) {
                 ManageArunnerGridRow rowManageArunnerGridRow = ((ManageArunnerGridRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Email,
@@ -10259,10 +10289,20 @@ namespace WpfApp1 {
                         SponsorAmount,
                         RaceKitOption,
                         EventTypeName,
-                        Photo};
+                        Photo,
+                        RegistrationStatusId,
+                        RegistrationStatusId1,
+                        null};
                 rowManageArunnerGridRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowManageArunnerGridRow);
                 return rowManageArunnerGridRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ManageArunnerGridRow FindByRegistrationId(int RegistrationId) {
+                return ((ManageArunnerGridRow)(this.Rows.Find(new object[] {
+                            RegistrationId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10293,6 +10333,9 @@ namespace WpfApp1 {
                 this.columnRaceKitOption = base.Columns["RaceKitOption"];
                 this.columnEventTypeName = base.Columns["EventTypeName"];
                 this.columnPhoto = base.Columns["Photo"];
+                this.columnRegistrationStatusId = base.Columns["RegistrationStatusId"];
+                this.columnRegistrationStatusId1 = base.Columns["RegistrationStatusId1"];
+                this.columnRegistrationId = base.Columns["RegistrationId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10320,6 +10363,14 @@ namespace WpfApp1 {
                 base.Columns.Add(this.columnEventTypeName);
                 this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhoto);
+                this.columnRegistrationStatusId = new global::System.Data.DataColumn("RegistrationStatusId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistrationStatusId);
+                this.columnRegistrationStatusId1 = new global::System.Data.DataColumn("RegistrationStatusId1", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistrationStatusId1);
+                this.columnRegistrationId = new global::System.Data.DataColumn("RegistrationId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistrationId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnRegistrationId}, true));
                 this.columnEmail.AllowDBNull = false;
                 this.columnEmail.MaxLength = 100;
                 this.columnFirstName.MaxLength = 80;
@@ -10336,6 +10387,15 @@ namespace WpfApp1 {
                 this.columnEventTypeName.AllowDBNull = false;
                 this.columnEventTypeName.MaxLength = 50;
                 this.columnPhoto.MaxLength = 50;
+                this.columnRegistrationStatusId.AllowDBNull = false;
+                this.columnRegistrationStatusId1.AllowDBNull = false;
+                this.columnRegistrationStatusId1.Caption = "RegistrationStatusId";
+                this.columnRegistrationId.AutoIncrement = true;
+                this.columnRegistrationId.AutoIncrementSeed = -1;
+                this.columnRegistrationId.AutoIncrementStep = -1;
+                this.columnRegistrationId.AllowDBNull = false;
+                this.columnRegistrationId.ReadOnly = true;
+                this.columnRegistrationId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13388,6 +13448,39 @@ namespace WpfApp1 {
                 }
                 set {
                     this[this.tableManageArunnerGrid.PhotoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int RegistrationStatusId {
+                get {
+                    return ((int)(this[this.tableManageArunnerGrid.RegistrationStatusIdColumn]));
+                }
+                set {
+                    this[this.tableManageArunnerGrid.RegistrationStatusIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte RegistrationStatusId1 {
+                get {
+                    return ((byte)(this[this.tableManageArunnerGrid.RegistrationStatusId1Column]));
+                }
+                set {
+                    this[this.tableManageArunnerGrid.RegistrationStatusId1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int RegistrationId {
+                get {
+                    return ((int)(this[this.tableManageArunnerGrid.RegistrationIdColumn]));
+                }
+                set {
+                    this[this.tableManageArunnerGrid.RegistrationIdColumn] = value;
                 }
             }
             
@@ -18302,12 +18395,22 @@ SELECT RegistrationEventId, RegistrationId, EventId, BibNumber, RaceTime FROM Re
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT RegistrationEventId, RegistrationId, EventId, BibNumber, RaceTime FROM dbo" +
                 ".RegistrationEvent";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO RegistrationEvent\r\n                         (RegistrationId, EventId," +
+                " BibNumber, RaceTime)\r\nVALUES        (@RegistrationId,@EventId,@BibNumber,@RaceT" +
+                "ime); ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrationId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EventId", global::System.Data.SqlDbType.NChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "EventId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BibNumber", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "BibNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RaceTime", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RaceTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18519,6 +18622,48 @@ SELECT RegistrationEventId, RegistrationId, EventId, BibNumber, RaceTime FROM Re
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int RegistrationId, string EventId, global::System.Nullable<short> BibNumber, global::System.Nullable<int> RaceTime, int Original_RegistrationEventId, int Original_RegistrationId, string Original_EventId, global::System.Nullable<short> Original_BibNumber, global::System.Nullable<int> Original_RaceTime) {
             return this.Update(RegistrationId, EventId, BibNumber, RaceTime, Original_RegistrationEventId, Original_RegistrationId, Original_EventId, Original_BibNumber, Original_RaceTime, Original_RegistrationEventId);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertEvent(int RegistrationId, string EventId, global::System.Nullable<short> BibNumber, global::System.Nullable<int> RaceTime) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(RegistrationId));
+            if ((EventId == null)) {
+                throw new global::System.ArgumentNullException("EventId");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(EventId));
+            }
+            if ((BibNumber.HasValue == true)) {
+                command.Parameters[2].Value = ((short)(BibNumber.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((RaceTime.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(RaceTime.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -24884,6 +25029,8 @@ WHERE        (RegistrationStatus.RegistrationStatus = @Statys)";
             tableMapping.ColumnMappings.Add("RaceKitOption", "RaceKitOption");
             tableMapping.ColumnMappings.Add("EventTypeName", "EventTypeName");
             tableMapping.ColumnMappings.Add("Photo", "Photo");
+            tableMapping.ColumnMappings.Add("RegistrationStatusId", "RegistrationStatusId1");
+            tableMapping.ColumnMappings.Add("RegistrationId", "RegistrationId");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -24897,23 +25044,55 @@ WHERE        (RegistrationStatus.RegistrationStatus = @Statys)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Runner.Email, [User].FirstName, [User].LastName, Runner.Gender, Runner.DateOfBirth, Country.CountryName, Charity.CharityName, SUM(Sponsorship.Amount) AS SponsorAmount, RaceKitOption.RaceKitOption, 
-                         EventType.EventTypeName, Runner.Photo
-FROM            RaceKitOption INNER JOIN
-                         Registration INNER JOIN
-                         Sponsorship ON Registration.RegistrationId = Sponsorship.RegistrationId INNER JOIN
-                         Charity ON Registration.CharityId = Charity.CharityId ON RaceKitOption.RaceKitOptionId = Registration.RaceKitOptionId INNER JOIN
-                         Runner ON Registration.RunnerId = Runner.RunnerId INNER JOIN
-                         [User] ON Runner.Email = [User].Email INNER JOIN
-                         Country ON Runner.CountryCode = Country.CountryCode INNER JOIN
-                         RegistrationEvent ON Registration.RegistrationId = RegistrationEvent.RegistrationId INNER JOIN
-                         EventType INNER JOIN
-                         Event ON EventType.EventTypeId = Event.EventTypeId ON RegistrationEvent.EventId = Event.EventId
-GROUP BY Runner.Email, [User].FirstName, [User].LastName, Runner.Gender, Runner.DateOfBirth, Country.CountryName, Charity.CharityName, RaceKitOption.RaceKitOption, EventType.EventTypeName, Runner.Photo";
+            this._commandCollection[0].CommandText = "SELECT        Runner.Email, [User].FirstName, [User].LastName, Runner.Gender, Run" +
+                "ner.DateOfBirth, Country.CountryName, Charity.CharityName, SUM(Sponsorship.Amoun" +
+                "t) AS SponsorAmount, RaceKitOption.RaceKitOption, \r\n                         Eve" +
+                "ntType.EventTypeName, Runner.Photo, Registration.RegistrationStatusId, Registrat" +
+                "ion.RegistrationId\r\nFROM            RaceKitOption INNER JOIN\r\n                  " +
+                "       Registration INNER JOIN\r\n                         Sponsorship ON Registra" +
+                "tion.RegistrationId = Sponsorship.RegistrationId INNER JOIN\r\n                   " +
+                "      Charity ON Registration.CharityId = Charity.CharityId ON RaceKitOption.Rac" +
+                "eKitOptionId = Registration.RaceKitOptionId INNER JOIN\r\n                        " +
+                " Runner ON Registration.RunnerId = Runner.RunnerId INNER JOIN\r\n                 " +
+                "        [User] ON Runner.Email = [User].Email INNER JOIN\r\n                      " +
+                "   Country ON Runner.CountryCode = Country.CountryCode INNER JOIN\r\n             " +
+                "            RegistrationEvent ON Registration.RegistrationId = RegistrationEvent" +
+                ".RegistrationId INNER JOIN\r\n                         EventType INNER JOIN\r\n     " +
+                "                    Event ON EventType.EventTypeId = Event.EventTypeId ON Regist" +
+                "rationEvent.EventId = Event.EventId\r\nGROUP BY Runner.Email, [User].FirstName, [U" +
+                "ser].LastName, Runner.Gender, Runner.DateOfBirth, Country.CountryName, Charity.C" +
+                "harityName, RaceKitOption.RaceKitOption, EventType.EventTypeName, Runner.Photo, " +
+                "\r\n                         Registration.RegistrationStatusId, Registration.Regis" +
+                "trationId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        Runner.Email, [User].FirstName, [User].LastName, Runner.Gender, Run" +
+                "ner.DateOfBirth, Country.CountryName, Charity.CharityName, SUM(Sponsorship.Amoun" +
+                "t) AS SponsorAmount, RaceKitOption.RaceKitOption, \r\n                         Eve" +
+                "ntType.EventTypeName, Runner.Photo, Registration.RegistrationStatusId, Registrat" +
+                "ion.RunnerId, Registration.RegistrationId\r\nFROM            RaceKitOption FULL OU" +
+                "TER JOIN\r\n                         Registration FULL OUTER JOIN\r\n               " +
+                "          Sponsorship ON Registration.RegistrationId = Sponsorship.RegistrationI" +
+                "d INNER JOIN\r\n                         Charity ON Registration.CharityId = Chari" +
+                "ty.CharityId ON RaceKitOption.RaceKitOptionId = Registration.RaceKitOptionId FUL" +
+                "L OUTER JOIN\r\n                         Runner ON Registration.RunnerId = Runner." +
+                "RunnerId FULL OUTER JOIN\r\n                         [User] ON Runner.Email = [Use" +
+                "r].Email FULL OUTER JOIN\r\n                         Country ON Runner.CountryCode" +
+                " = Country.CountryCode FULL OUTER JOIN\r\n                         RegistrationEve" +
+                "nt ON Registration.RegistrationId = RegistrationEvent.RegistrationId FULL OUTER " +
+                "JOIN\r\n                         EventType FULL OUTER JOIN\r\n                      " +
+                "   Event ON EventType.EventTypeId = Event.EventTypeId ON RegistrationEvent.Event" +
+                "Id = Event.EventId\r\nGROUP BY Runner.Email, [User].FirstName, [User].LastName, Ru" +
+                "nner.Gender, Runner.DateOfBirth, Country.CountryName, Charity.CharityName, RaceK" +
+                "itOption.RaceKitOption, EventType.EventTypeName, Runner.Photo, \r\n               " +
+                "          Registration.RegistrationStatusId, Registration.RunnerId, Registration" +
+                ".RegistrationId\r\nHAVING        (Runner.Email = @Email)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24922,6 +25101,25 @@ GROUP BY Runner.Email, [User].FirstName, [User].LastName, Runner.Gender, Runner.
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
         public virtual int Fill(marathonDataSet.ManageArunnerGridDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SerchByEmail(marathonDataSet.ManageArunnerGridDataTable dataTable, string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }

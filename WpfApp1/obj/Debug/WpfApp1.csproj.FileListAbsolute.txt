@@ -76,5 +76,5 @@ C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Coordinator\RunnerMana
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Coordinator\RunnerManagement.baml
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Coordinator\Listik.g.cs
 C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Coordinator\Listik.baml
-C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\ManageARunner.g.cs
-C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\ManageARunner.baml
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Coordinator\ManageARunner.g.cs
+C:\Users\Олимп\Desktop\Wpf\WpfApp1\WpfApp1\obj\Debug\Coordinator\ManageARunner.baml

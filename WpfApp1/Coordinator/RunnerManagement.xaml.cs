@@ -95,7 +95,7 @@ namespace WpfApp1
         {
             marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
             marathonDataSetTableAdapters.RunnerManagTableAdapter runnerManagTableAdapter = new marathonDataSetTableAdapters.RunnerManagTableAdapter();
-           // runnerManagTableAdapter.Fill(marathonDataSet.RunnerManag);
+            // runnerManagTableAdapter.Fill(marathonDataSet.RunnerManag);
             string Cont;
             File.AppendAllText(AppDomain.CurrentDomain.BaseDirectory + "Ашдумв", "fsdfsd \n");
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -106,11 +106,11 @@ namespace WpfApp1
                 if (saveFileDialog.ShowDialog() == true)
                 {
                     StreamWriter OutFile = new StreamWriter(saveFileDialog.FileName);
-                    MessageBox.Show("Внимание!, если записей много - это может занять некоторое время, дождитесь подсказки: 'Выгружено'"); 
+                    MessageBox.Show("Внимание!, если записей много - это может занять некоторое время, дождитесь подсказки: 'Выгружено'");
                     for (int i = 0; i < marathonDataSet.RunnerManag.Count; i++)
                     {
 
-                        OutFile.WriteLine(  marathonDataSet.RunnerManag[i][0].ToString() + "," + marathonDataSet.RunnerManag[i][1].ToString() + "," + marathonDataSet.RunnerManag[i][2].ToString() + "," +
+                        OutFile.WriteLine(marathonDataSet.RunnerManag[i][0].ToString() + "," + marathonDataSet.RunnerManag[i][1].ToString() + "," + marathonDataSet.RunnerManag[i][2].ToString() + "," +
                             marathonDataSet.RunnerManag[i][4].ToString() + "\n");
                     }
                     MessageBox.Show("Выгружено");
@@ -118,7 +118,7 @@ namespace WpfApp1
 
                 }
             }
-            catch { MessageBox.Show("Файл с таким именем уже существует");return; }
+            catch { MessageBox.Show("Файл с таким именем уже существует"); return; }
         }
 
         private void EmailSpisok_Click(object sender, RoutedEventArgs e)
@@ -129,7 +129,7 @@ namespace WpfApp1
             string cons;
             for (int i = 0; i < marathonDataSet.RunnerManag.Count; i++)
             {
-                Perem.list.Add(marathonDataSet.RunnerManag[i][0].ToString() + ","+ marathonDataSet.RunnerManag[i][1].ToString() + ","+ marathonDataSet.RunnerManag[i][2].ToString() + ";"+"\n");
+                Perem.list.Add(marathonDataSet.RunnerManag[i][0].ToString() + "," + marathonDataSet.RunnerManag[i][1].ToString() + "," + marathonDataSet.RunnerManag[i][2].ToString() + ";" + "\n");
             }
             Listik list = new Listik();
             list.ShowDialog();
@@ -137,7 +137,20 @@ namespace WpfApp1
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Libra.Runner.Email = sender.ToString().Remove(0, 32).Trim();
+            try
+            { 
+                Libra.Runner.Email = sender.ToString().Remove(0, 32).Trim();
+
+            }catch { MessageBox.Show("ВЫ не можете выбрать никого кроме бегуна");return; }
+           
+            ManageARunner manageARunner = new ManageARunner();
+            manageARunner.ShowDialog();
+            marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
+            WpfApp1.marathonDataSetTableAdapters.RunnerManagTableAdapter marathonDataSetRunnerManagTableAdapter = new WpfApp1.marathonDataSetTableAdapters.RunnerManagTableAdapter();
+            marathonDataSetRunnerManagTableAdapter.Fill(marathonDataSet.RunnerManag);
+            System.Windows.Data.CollectionViewSource runnerManagViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("runnerManagViewSource")));
+            runnerManagViewSource.View.MoveCurrentToFirst();
+
         }
     }
 }
