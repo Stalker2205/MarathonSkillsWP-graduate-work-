@@ -69,6 +69,9 @@ namespace WpfApp1
             Runner.Email = TboxMail.Text;
             Runner.Password = TboxPass.Text;
             Runner.CountryCode = marathonDataSet.Runner[0][4].ToString();
+            Runner.Pos = "Login";
+            Runner.Gender = marathonDataSet.Runner[0][2].ToString();
+            Runner.Photo = marathonDataSet.Runner[0][5].ToString();
             switch (role)
             {
                 case "R"://бегун

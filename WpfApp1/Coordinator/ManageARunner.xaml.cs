@@ -33,7 +33,7 @@ namespace WpfApp1
             marathonDataSet marathonDataSet = ((marathonDataSet)((FindResource("marathonDataSet"))));
             // Загрузить данные в таблицу ManageArunnerGrid. Можно изменить этот код как требуется.
             WpfApp1.marathonDataSetTableAdapters.ManageArunnerGridTableAdapter marathonDataSetManageArunnerGridTableAdapter = new WpfApp1.marathonDataSetTableAdapters.ManageArunnerGridTableAdapter();
-            marathonDataSetManageArunnerGridTableAdapter.SerchByEmail(marathonDataSet.ManageArunnerGrid, "azebus767@mail.ru"/*Libra.Runner.Email*/);
+            marathonDataSetManageArunnerGridTableAdapter.SerchByEmail(marathonDataSet.ManageArunnerGrid, Libra.Runner.Email,Libra.Event.marathon);
             System.Windows.Data.CollectionViewSource manageArunnerGridViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("manageArunnerGridViewSource")));
             manageArunnerGridViewSource.View.MoveCurrentToFirst();
             if (marathonDataSet.ManageArunnerGrid[0][10].ToString() != "")

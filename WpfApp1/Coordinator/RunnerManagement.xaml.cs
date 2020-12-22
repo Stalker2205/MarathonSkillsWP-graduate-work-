@@ -32,6 +32,7 @@ namespace WpfApp1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timerStart();
+            #region TabelAdapter
             marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
             // Загрузить данные в таблицу RegistrationStatus. Можно изменить этот код как требуется.
             WpfApp1.marathonDataSetTableAdapters.RegistrationStatusTableAdapter marathonDataSetRegistrationStatusTableAdapter = new WpfApp1.marathonDataSetTableAdapters.RegistrationStatusTableAdapter();
@@ -48,6 +49,10 @@ namespace WpfApp1
             marathonDataSetRunnerManagTableAdapter.Fill(marathonDataSet.RunnerManag);
             System.Windows.Data.CollectionViewSource runnerManagViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("runnerManagViewSource")));
             runnerManagViewSource.View.MoveCurrentToFirst();
+            
+            marathonDataSetTableAdapters.RunnerManagTableAdapter runnerManagTableAdapter = new marathonDataSetTableAdapters.RunnerManagTableAdapter();
+            #endregion
+            runnerManagTableAdapter.SerchEvent(marathonDataSet.RunnerManag, eventTypeNameComboBox.Text, registrationStatusComboBox.Text);
         }
         private DispatcherTimer timer = null;
 
@@ -74,14 +79,14 @@ namespace WpfApp1
         {
             marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
             marathonDataSetTableAdapters.RunnerManagTableAdapter runnerManagTableAdapter = new marathonDataSetTableAdapters.RunnerManagTableAdapter();
-            runnerManagTableAdapter.SerchStatys(marathonDataSet.RunnerManag, registrationStatusComboBox.Text);
+            runnerManagTableAdapter.SerchEvent(marathonDataSet.RunnerManag, eventTypeNameComboBox.Text, registrationStatusComboBox.Text);
         }
 
         private void eventTypeNameComboBox_DropDownClosed(object sender, EventArgs e)
         {
             marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
             marathonDataSetTableAdapters.RunnerManagTableAdapter runnerManagTableAdapter = new marathonDataSetTableAdapters.RunnerManagTableAdapter();
-            runnerManagTableAdapter.SerchEvent(marathonDataSet.RunnerManag, eventTypeNameComboBox.Text);
+            runnerManagTableAdapter.SerchEvent(marathonDataSet.RunnerManag, eventTypeNameComboBox.Text,registrationStatusComboBox.Text);
         }
 
         private void ClearRunnerMAnager_Click(object sender, RoutedEventArgs e)
@@ -126,7 +131,6 @@ namespace WpfApp1
             marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
             marathonDataSetTableAdapters.RunnerManagTableAdapter runnerManagTableAdapter = new marathonDataSetTableAdapters.RunnerManagTableAdapter();
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            string cons;
             for (int i = 0; i < marathonDataSet.RunnerManag.Count; i++)
             {
                 Perem.list.Add(marathonDataSet.RunnerManag[i][0].ToString() + "," + marathonDataSet.RunnerManag[i][1].ToString() + "," + marathonDataSet.RunnerManag[i][2].ToString() + ";" + "\n");
@@ -138,19 +142,13 @@ namespace WpfApp1
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             try
-            { 
+            {
+                Libra.Event.marathon = eventTypeNameComboBox.Text;
                 Libra.Runner.Email = sender.ToString().Remove(0, 32).Trim();
 
             }catch { MessageBox.Show("ВЫ не можете выбрать никого кроме бегуна");return; }
-           
             ManageARunner manageARunner = new ManageARunner();
-            manageARunner.ShowDialog();
-            marathonDataSet marathonDataSet = ((marathonDataSet)(FindResource("marathonDataSet")));
-            WpfApp1.marathonDataSetTableAdapters.RunnerManagTableAdapter marathonDataSetRunnerManagTableAdapter = new WpfApp1.marathonDataSetTableAdapters.RunnerManagTableAdapter();
-            marathonDataSetRunnerManagTableAdapter.Fill(marathonDataSet.RunnerManag);
-            System.Windows.Data.CollectionViewSource runnerManagViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("runnerManagViewSource")));
-            runnerManagViewSource.View.MoveCurrentToFirst();
-
+            manageARunner.ShowDialog();     
         }
     }
 }

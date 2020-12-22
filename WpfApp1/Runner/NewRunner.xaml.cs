@@ -128,6 +128,7 @@ namespace WpfApp1
             Runner.Email = TboxMail.Text;
             Runner.Gender = genderComboBox.Text;
             Runner.Photo = fotoname.Text;
+            Runner.Pos = "New";
             RegisterForAnEvent registerForAnEvent = new RegisterForAnEvent();
             registerForAnEvent.Show();
             Close();

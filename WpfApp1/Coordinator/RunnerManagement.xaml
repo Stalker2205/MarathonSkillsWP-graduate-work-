@@ -51,7 +51,6 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
                     <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="SizeToHeader"/>
-
                     <DataGridTextColumn x:Name="registrationStatusColumn" Binding="{Binding RegistrationStatus}" Header="Registration Status" Width="SizeToHeader"/>
                     <DataGridTemplateColumn x:Name="emailColumn"  Header="редактировать" Width="SizeToCells">
                         <DataGridTemplateColumn.CellTemplate >
@@ -64,6 +63,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            
         </Grid>
         <Grid HorizontalAlignment="Left" Height="118" Margin="10,42,0,0" Grid.Row="1" VerticalAlignment="Top" Width="466">
             <Grid.ColumnDefinitions>

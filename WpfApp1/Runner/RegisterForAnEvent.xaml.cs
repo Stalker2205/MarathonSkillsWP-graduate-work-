@@ -62,11 +62,14 @@ namespace WpfApp1
         int priceAll = 0;
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            #region TableAdapter
             WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(this.FindResource("marathonDataSet")));
             WpfApp1.marathonDataSetTableAdapters.RunnerTableAdapter runnerTableAdapter = new marathonDataSetTableAdapters.RunnerTableAdapter();
             WpfApp1.marathonDataSetTableAdapters.RegistrationTableAdapter registrationTableAdapter = new marathonDataSetTableAdapters.RegistrationTableAdapter();
             WpfApp1.marathonDataSetTableAdapters.CharityTableAdapter charityTableAdapter = new marathonDataSetTableAdapters.CharityTableAdapter();
             WpfApp1.marathonDataSetTableAdapters.RegistrationEventTableAdapter registrationEventTableAdapter = new marathonDataSetTableAdapters.RegistrationEventTableAdapter();
+            #endregion
+            #region checks
             if (!(bool)KM32.IsChecked && !(bool)KM23.IsChecked && !(bool)KM5.IsChecked)
             {
                 MessageBox.Show("Выберите хотя бы 1 дистанцию"); return;
@@ -82,13 +85,17 @@ namespace WpfApp1
             catch { MessageBox.Show("Сумма взноса должна быть числом"); }
             runnerTableAdapter.Runner(marathonDataSet.Runner, Runner.Email, Runner.Gender, Runner.CountryCode, Runner.Photo);
             charityTableAdapter.FillBy(marathonDataSet.Charity, charityNameComboBox.Text);
-            int runnerid = Convert.ToInt32(marathonDataSet.Runner[0][0].ToString());     
+            int runnerid = Convert.ToInt32(marathonDataSet.Runner[0][0].ToString());
+            #endregion
+
             if (Convert.ToInt32(PriceTextBox.Text) < Convert.ToInt32(priceAll))
             {
-                registrationTableAdapter.InsertReg(runnerid, DateTime.Now, variant, 1, priceAll,Convert.ToInt32( marathonDataSet.Charity[0][0].ToString()),Convert.ToDecimal( Price.Text));
+                registrationTableAdapter.InsertReg(runnerid, DateTime.Now, variant, 1, priceAll, Convert.ToInt32(marathonDataSet.Charity[0][0].ToString()), Convert.ToDecimal(priceAll));
             }
             registrationTableAdapter.InsertReg(runnerid, DateTime.Now, variant, 2, priceAll, Convert.ToInt32(marathonDataSet.Charity[0][0].ToString()), Convert.ToDecimal(priceAll));
-          //  registrationEventTableAdapter.InsertEvent(, EventID,null,null);
+            registrationTableAdapter.SerchRunnerByid(marathonDataSet.Registration, runnerid);
+            string FullEventName = $"21{EventID}";
+            registrationEventTableAdapter.InsertEvent(Convert.ToInt32( marathonDataSet.Registration[0][0].ToString()),FullEventName, null, null) ;
             RegistrationConfirmation registrationConfirmation = new RegistrationConfirmation();
             registrationConfirmation.Show();
             Close();
@@ -98,7 +105,7 @@ namespace WpfApp1
         {
             if (Convert.ToBoolean(KM32.IsChecked)) { priceAll += 145; } else { priceAll -= 145; }
             Price.Text = $"${priceAll}";
-            EventID = "FM"; 
+            EventID = "FM";
         }
 
         private void KM23_Click(object sender, RoutedEventArgs e)
