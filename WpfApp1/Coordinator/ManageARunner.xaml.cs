@@ -33,7 +33,7 @@ namespace WpfApp1
             marathonDataSet marathonDataSet = ((marathonDataSet)((FindResource("marathonDataSet"))));
             // Загрузить данные в таблицу ManageArunnerGrid. Можно изменить этот код как требуется.
             WpfApp1.marathonDataSetTableAdapters.ManageArunnerGridTableAdapter marathonDataSetManageArunnerGridTableAdapter = new WpfApp1.marathonDataSetTableAdapters.ManageArunnerGridTableAdapter();
-            marathonDataSetManageArunnerGridTableAdapter.SerchByEmail(marathonDataSet.ManageArunnerGrid, Libra.Runner.Email,Libra.Event.marathon);
+            marathonDataSetManageArunnerGridTableAdapter.SerchByEmail(marathonDataSet.ManageArunnerGrid, Libra.Runner.Email, Libra.Event.marathon);
             System.Windows.Data.CollectionViewSource manageArunnerGridViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("manageArunnerGridViewSource")));
             manageArunnerGridViewSource.View.MoveCurrentToFirst();
             if (marathonDataSet.ManageArunnerGrid[0][10].ToString() != "")
@@ -45,7 +45,7 @@ namespace WpfApp1
             {
                 case 1:
                     {
-                        Img1.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "IkonOk.png",UriKind.Absolute));
+                        Img1.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "IkonOk.png", UriKind.Absolute));
                         Img2.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "IkonNo.png", UriKind.Absolute));
                         Img3.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "IkonNo.png", UriKind.Absolute));
                         Img4.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "IkonNo.png", UriKind.Absolute));
@@ -100,6 +100,35 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void certificate_Click(object sender, RoutedEventArgs e)
+        {
+            Libra.Runner.LastName = lastNameTextBlock.Text;
+            Libra.Runner.FirstName = firstNameTextBlock.Text;
+            Libra.Event.distance = eventTypeNameTextBlock.Text;
+            Libra.Charity.Name = charityNameTextBlock.Text;
+            Certificate certificate = new Certificate();
+            certificate.ShowDialog();
+        }
+
+        private void editProfile_Click(object sender, RoutedEventArgs e)
+        {
+            marathonDataSet marathonDataSet = ((marathonDataSet)((FindResource("marathonDataSet"))));
+            WpfApp1.marathonDataSetTableAdapters.RunnerTableAdapter runnerTableAdapter = new marathonDataSetTableAdapters.RunnerTableAdapter();
+            runnerTableAdapter.SerchEmail(marathonDataSet.Runner, Libra.Runner.Email);
+            System.Windows.Data.CollectionViewSource manageArunnerGridViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("manageArunnerGridViewSource")));
+            manageArunnerGridViewSource.View.MoveCurrentToFirst();
+            Libra.Runner.CountryCode = marathonDataSet.Runner[0][4].ToString();
+            EditRunnerProfile editRunnerProfile = new EditRunnerProfile();
+            editRunnerProfile.ShowDialog();
+            marathonDataSetTableAdapters.ManageArunnerGridTableAdapter marathonDataSetManageArunnerGridTableAdapter = new marathonDataSetTableAdapters.ManageArunnerGridTableAdapter();
+            marathonDataSetManageArunnerGridTableAdapter.SerchByEmail(marathonDataSet.ManageArunnerGrid, Libra.Runner.Email, Libra.Event.marathon);
+            manageArunnerGridViewSource.View.MoveCurrentToFirst();
+            if (marathonDataSet.ManageArunnerGrid[0][10].ToString() != "")
+            {
+                FotoImg.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + marathonDataSet.ManageArunnerGrid[0][10].ToString(), UriKind.Absolute));
+            }
         }
     }
 }

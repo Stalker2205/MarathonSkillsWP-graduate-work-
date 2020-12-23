@@ -65,6 +65,8 @@ namespace WpfApp1
             userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text);
             if (userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text) == 0) { MessageBox.Show("Такой комбинации логина и пароля не существует"); return; }
             string role = marathonDataSet.User[0][4].ToString();
+         
+            #region Filling Class Runner
             Runner.ID = marathonDataSet.Runner[0][0].ToString();
             Runner.Email = TboxMail.Text;
             Runner.Password = TboxPass.Text;
@@ -72,6 +74,8 @@ namespace WpfApp1
             Runner.Pos = "Login";
             Runner.Gender = marathonDataSet.Runner[0][2].ToString();
             Runner.Photo = marathonDataSet.Runner[0][5].ToString();
+            #endregion
+
             switch (role)
             {
                 case "R"://бегун
@@ -88,7 +92,7 @@ namespace WpfApp1
                         Close();
                         break;
                     }
-                case "K"://Координатор
+                case "C"://Координатор
                     {
                         CoordinatorMenu coordinatorMenu = new CoordinatorMenu();
                         coordinatorMenu.Show();

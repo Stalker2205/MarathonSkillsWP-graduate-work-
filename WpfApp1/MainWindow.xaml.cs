@@ -80,11 +80,5 @@ namespace WpfApp1
             registerAsARunner.ShowDialog();
   
         }
-
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            CoordinatorMenu coordinatorMenu = new CoordinatorMenu();
-            coordinatorMenu.ShowDialog();
-        }
     }
 }

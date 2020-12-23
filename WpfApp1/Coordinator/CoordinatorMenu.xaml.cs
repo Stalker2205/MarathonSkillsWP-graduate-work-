@@ -58,5 +58,11 @@ namespace WpfApp1
             runnerManagement.ShowDialog();
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SponsorshipOverview sponsorshipOverview = new SponsorshipOverview();
+            sponsorshipOverview.ShowDialog();
+        }
     }
 }

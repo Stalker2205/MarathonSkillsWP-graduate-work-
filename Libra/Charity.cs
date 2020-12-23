@@ -7,42 +7,8 @@ namespace Libra
     public class Charity
     {
         private int _id;
-        private string _name;
+        public static string Name;
         private string _discription;
-
-        public int ID1
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
-        public string Name1
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
-        public string Discription1
-        {
-            get
-            {
-                return _discription;
-            }
-
-            set
-            {
-                _discription = value;
-            }
-        }
+        
     }
 }

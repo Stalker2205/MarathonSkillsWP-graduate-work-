@@ -72,5 +72,24 @@ namespace WpfApp1
             PreviousRaceResult previousRaceResult = new PreviousRaceResult();
             previousRaceResult.ShowDialog();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            BMIcalculator bMIcalculator = new BMIcalculator();
+            bMIcalculator.Show();
+            Close();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            BMRcalculator bMRcalculator = new BMRcalculator();
+            bMRcalculator.Show();
+            Close();
+        }
     }
 }

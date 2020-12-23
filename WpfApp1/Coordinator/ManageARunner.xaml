@@ -161,5 +161,8 @@
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,82,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Подтверждена оплата" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top" Height="68" Width="185" FontSize="20"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,155,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Выдан пакет" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top" Height="68" Width="185" FontSize="20"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,228,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Вышел на старт" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top" Height="68" Width="185" FontSize="20"/>
+        <Button Content="показать сертификат" x:Name="certificate" Click="certificate_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="10,229,0,0" Grid.Row="2" VerticalAlignment="Top" Width="126" Height="33" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="Редактировать профиль" x:Name="editProfile" Click="editProfile_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="141,229,0,0" Grid.Row="2" VerticalAlignment="Top" Width="143" Height="33" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="Печать бейджа" Grid.Column="1" HorizontalAlignment="Left" Margin="10,282,0,0" Grid.Row="2" VerticalAlignment="Top" Width="264" Height="33" RenderTransformOrigin="0.5,0.5"/>
     </Grid>
 </Window>

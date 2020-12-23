@@ -57,8 +57,6 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            DataRowView row = (DataRowView)charity1DataGrid.Items[1];
-            row[1] = "gdfjgjdoigoidf";
         }
     }
 }

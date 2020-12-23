@@ -76,5 +76,17 @@ namespace WpfApp1
             VolounteerManagement volounteerManagement = new VolounteerManagement();
             volounteerManagement.ShowDialog();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            UserManagement userManagement = new UserManagement();
+            userManagement.ShowDialog();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            UserManagement userManagement = new UserManagement();
+            userManagement.ShowDialog();
+        }
     }
 }

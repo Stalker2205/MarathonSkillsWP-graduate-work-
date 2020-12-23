@@ -14,5 +14,11 @@ namespace Libra
         public static string Gender;
         public static string Photo;
         public static string CountryCode;
+        private double bMI;
+        public double CalculationBmi(int Growth, int Weight)
+        {
+            bMI = Weight / Math.Pow((Convert.ToDouble(Growth) / 100), 2);
+            return bMI;
+        }
     }
 }

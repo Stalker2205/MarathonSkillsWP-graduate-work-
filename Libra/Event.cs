@@ -7,5 +7,6 @@ namespace Libra
     public class Event
     {
         public static string marathon="";
+        public static string distance = "";
     }
 }
