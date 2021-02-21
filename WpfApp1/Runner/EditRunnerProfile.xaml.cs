@@ -32,6 +32,7 @@ namespace WpfApp1
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            #region Tableadapter
             timerStart();
             WpfApp1.marathonDataSet marathonDataSet = ((WpfApp1.marathonDataSet)(FindResource("marathonDataSet")));
             // Загрузить данные в таблицу Runner. Можно изменить этот код как требуется.
@@ -49,13 +50,20 @@ namespace WpfApp1
             marathonDataSetCountryTableAdapter.SerchKod(marathonDataSet.Country, Runner.CountryCode);
             System.Windows.Data.CollectionViewSource countryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("countryViewSource")));
             countryViewSource.View.MoveCurrentToFirst();
-            var bitmap = new BitmapImage();
-            string sq = AppDomain.CurrentDomain.BaseDirectory + photoTextBox.Text;
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri($"{sq}", UriKind.Absolute);
-            bitmap.EndInit();
-            bitmap.Freeze();
-            PhotoUser.Source = bitmap;
+            #endregion
+            if (marathonDataSet.Runner[0][5].ToString() != "")
+            { 
+                var bitmap = new BitmapImage();
+                string sq = AppDomain.CurrentDomain.BaseDirectory + photoTextBox.Text;
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri($"{sq}", UriKind.Absolute);
+                bitmap.EndInit();
+                bitmap.Freeze();
+                PhotoUser.Source = bitmap;
+
+            }
+
+
             // Загрузить данные в таблицу Gender. Можно изменить этот код как требуется.
             WpfApp1.marathonDataSetTableAdapters.GenderTableAdapter marathonDataSetGenderTableAdapter = new WpfApp1.marathonDataSetTableAdapters.GenderTableAdapter();
             marathonDataSetGenderTableAdapter.Fill(marathonDataSet.Gender);

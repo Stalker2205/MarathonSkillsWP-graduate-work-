@@ -51,5 +51,18 @@ namespace WpfApp1
         {
             Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            RunnerManagement runnerManagement = new RunnerManagement();
+            runnerManagement.ShowDialog();
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SponsorshipOverview sponsorshipOverview = new SponsorshipOverview();
+            sponsorshipOverview.ShowDialog();
+        }
     }
 }

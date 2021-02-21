@@ -50,6 +50,8 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             Close();
         }
 
@@ -63,10 +65,17 @@ namespace WpfApp1
             userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text);
             if (userTableAdapter.FillBy(marathonDataSet.User, TboxMail.Text, TboxPass.Text) == 0) { MessageBox.Show("Такой комбинации логина и пароля не существует"); return; }
             string role = marathonDataSet.User[0][4].ToString();
+         
+            #region Filling Class Runner
             Runner.ID = marathonDataSet.Runner[0][0].ToString();
             Runner.Email = TboxMail.Text;
             Runner.Password = TboxPass.Text;
             Runner.CountryCode = marathonDataSet.Runner[0][4].ToString();
+            Runner.Pos = "Login";
+            Runner.Gender = marathonDataSet.Runner[0][2].ToString();
+            Runner.Photo = marathonDataSet.Runner[0][5].ToString();
+            #endregion
+
             switch (role)
             {
                 case "R"://бегун
@@ -81,11 +90,9 @@ namespace WpfApp1
                         AdminMenu adminMenu = new AdminMenu();
                         adminMenu.Show();
                         Close();
-                        MessageBox.Show("Default case");
-
                         break;
                     }
-                case "K"://Координатор
+                case "C"://Координатор
                     {
                         CoordinatorMenu coordinatorMenu = new CoordinatorMenu();
                         coordinatorMenu.Show();
@@ -95,7 +102,7 @@ namespace WpfApp1
                     }
                 default:
                     {
-
+                        MessageBox.Show("Default case");
                         break;
                     }
             }

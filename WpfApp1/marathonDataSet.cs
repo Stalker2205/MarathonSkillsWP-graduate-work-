@@ -4,6 +4,18 @@
 
     public partial class marathonDataSet
     {
+        partial class SponsorshipOverviewDataTable
+        {
+        }
+
+        partial class ManageArunnerGridDataTable
+        {
+        }
+
+        partial class RunnerManagDataTable
+        {
+        }
+
         partial class Registration1DataTable
         {
         }

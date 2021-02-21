@@ -33,6 +33,5 @@
         <Button Content="Login" HorizontalAlignment="Left" Margin="354,349,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="Button_Click_2"/>
         <Label Content="MARATHON SKILLS 2020"  Background="Black" Foreground="White" Margin="0,27,117,0" VerticalAlignment="Top" RenderTransformOrigin="-2.237,1.135" FontSize="22" HorizontalAlignment="Right" Width="256"/>
         <Label Content="Среда 26 января 2020" HorizontalAlignment="Left" Foreground="White"  Margin="170,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.066,0.808"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="397,151,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
     </Grid>
 </Window>

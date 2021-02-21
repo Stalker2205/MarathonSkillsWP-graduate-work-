@@ -67,11 +67,50 @@
     <Compile Include="Admin\NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddOrEditCharity.xaml.cs">
+    <Compile Include="Admin\AddOrEditCharity.xaml.cs">
       <DependentUpon>AddOrEditCharity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageCharities.xaml.cs">
+    <Compile Include="Admin\ManageCharities.xaml.cs">
       <DependentUpon>ManageCharities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\VolounteerManagement.xaml.cs">
+      <DependentUpon>VolounteerManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddAnewUser.xaml.cs">
+      <DependentUpon>AddAnewUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement.xaml.cs">
+      <DependentUpon>UserManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\Certificate.xaml.cs">
+      <DependentUpon>Certificate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Marathon\BMRcalculator.xaml.cs">
+      <DependentUpon>BMRcalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Marathon\BMIcalculator.xaml.cs">
+      <DependentUpon>BMIcalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\SponsorshipOverview.xaml.cs">
+      <DependentUpon>SponsorshipOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\ManageARunner.xaml.cs">
+      <DependentUpon>ManageARunner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\Listik.xaml.cs">
+      <DependentUpon>Listik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coordinator\RunnerManagement.xaml.cs">
+      <DependentUpon>RunnerManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Marathon\PreviousRaceResult.xaml.cs">
+      <DependentUpon>PreviousRaceResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\MySponsor.xaml.cs">
+      <DependentUpon>MySponsor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Marathon\InteractMap.xaml.cs">
       <DependentUpon>InteractMap.xaml</DependentUpon>
@@ -133,9 +172,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Page Include="Admin\AdminMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -148,11 +184,63 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AddOrEditCharity.xaml">
+    <Page Include="Admin\AddOrEditCharity.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ManageCharities.xaml">
+    <Page Include="Admin\ManageCharities.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\VolounteerManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddAnewUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Coordinator\Certificate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Marathon\BMRcalculator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Marathon\BMIcalculator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Coordinator\SponsorshipOverview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Coordinator\ManageARunner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Coordinator\Listik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coordinator\RunnerManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Marathon\PreviousRaceResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Runner\MySponsor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -243,10 +331,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="marathonDataSet.Designer.cs">
@@ -331,6 +415,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Marathon\map-icon-medical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\male-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Marathon\female-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Coordinator\marathon-skills-2014-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Coordinator\IkonOk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,83 @@
+﻿<Window x:Class="WpfApp1.BMRcalculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="BMRcalculator" Height="434.667" Width="494" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+
+    </Window.Resources>
+    <Grid  Margin="0,-2,0,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="112,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.394,-1.641" Height="0" Width="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Height="32" Margin="0,370,0,0" VerticalAlignment="Top" Background="Black" Grid.ColumnSpan="2">
+            <Label Content="18 дней 8 часов и 17 минут до старта марафона!" HorizontalAlignment="Left" Foreground="White" Margin="92,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="484" Background="Black" Grid.ColumnSpan="2">
+            <Button Content="Назад" Background="Gray"  HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.569,0.45" Click="Button_Click"/>
+            <Label Content="MARATHON SKILLS 2020" Foreground="White" HorizontalAlignment="Left" Margin="158,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,-0.064"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left"  Margin="10,36,0,0" TextWrapping="Wrap" Text="BMR калькулятор" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top" Width="466" FontSize="18" Grid.ColumnSpan="2" Height="24"/>
+        <Grid HorizontalAlignment="Left" Height="115" Margin="10,65,0,0" VerticalAlignment="Top" Width="233" RenderTransformOrigin="0.497,0.143">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110*"/>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="110*"/>
+            </Grid.ColumnDefinitions>
+            <Image Margin="10,0,0,0" x:Name="MaleIcon" MouseLeftButtonDown="MaleIcon_MouseLeftButtonDown"  Height="98" VerticalAlignment="Top" Source="male-icon.png"/>
+            <Image Grid.Column="2" x:Name="FmaleIcon" MouseLeftButtonDown="FmaleIcon_MouseLeftButtonDown"  Height="98" VerticalAlignment="Top" Source="female-icon.png"/>
+            <TextBlock Margin="0,98,0,0" x:Name="MaleTbox" TextWrapping="Wrap" Text="Мужчина" IsEnabled="False" TextAlignment="Center"/>
+            <TextBlock Margin="0,98,0,0" x:Name="FmaleTbox" TextWrapping="Wrap" Text="Женщина" IsEnabled="False" TextAlignment="Center" Grid.Column="2"/>
+        </Grid>
+        <Grid Height="180" Margin="10,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.143">
+            <TextBlock HorizontalAlignment="Left" Margin="18,10,0,0" TextWrapping="Wrap" Text="Рост:" IsEnabled="False" VerticalAlignment="Top" RenderTransformOrigin="1.16,0.583"/>
+            <TextBlock HorizontalAlignment="Left" Margin="24,34,0,0" TextWrapping="Wrap" Text="Вес:" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,58,0,0" TextWrapping="Wrap" Text="Возраст:" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBox x:Name="Growth" HorizontalAlignment="Left" Height="23" Margin="50,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+            <TextBox x:Name="Weight" HorizontalAlignment="Left" Height="23" Margin="50,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+            <TextBox x:Name="Age" HorizontalAlignment="Left" Height="23" Margin="50,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+            <TextBlock HorizontalAlignment="Left" Margin="168,10,0,0" TextWrapping="Wrap" Text="см" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="168,34,0,0" TextWrapping="Wrap" Text="кг" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="168,58,0,0" TextWrapping="Wrap" Text="лет" IsEnabled="False" VerticalAlignment="Top"/>
+            <Button Content="Рассчитать" x:Name="Calculation" Click="Calculation_Click" Margin="18,101,140,59"/>
+            <Button Content="Отмена" x:Name="Cloasing" Click="Cloasing_Click" Margin="108,101,50,59"/>
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="300" Margin="0,65,0,0" VerticalAlignment="Top" Width="241">
+            <TextBlock Margin="10,17,10,0" TextWrapping="Wrap" Text="Ваш BMR" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBlock Margin="10,33,10,0" TextAlignment="Center" TextWrapping="Wrap" x:Name="BmrTbox" IsEnabled="False" VerticalAlignment="Top" Height="43" FontSize="18"/>
+            <TextBlock Margin="10,81,32,0" TextWrapping="Wrap" Text="Ежедневно тратится каллорий" TextAlignment="Center" IsEnabled="False" VerticalAlignment="Top"/>
+            <Image HorizontalAlignment="Left" x:Name="Info" MouseLeftButtonDown="Info_MouseLeftButtonDown" Height="17" Margin="214,82,0,0" VerticalAlignment="Top" Width="17" Source="map-icon-information.png"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,118,0,0" TextWrapping="Wrap" Text="Сидячий :" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBlock Margin="10,139,10,0" TextWrapping="Wrap" Text="Активность" TextAlignment="Center"  IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="31,160,0,0" TextWrapping="Wrap" Text="Маленькая :" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="102,160,0,0" TextWrapping="Wrap" x:Name="LowActivityTbox" IsEnabled="False" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="45,187,0,0" TextWrapping="Wrap" Text="Средняя :" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="102,187,0,0" TextWrapping="Wrap" x:Name="AverageActivityTbox" IsEnabled="False" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="46,215,0,0" TextWrapping="Wrap" Text="Сильная :" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="102,215,0,0" TextWrapping="Wrap" x:Name="StrongActivityTbox" IsEnabled="False" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,243,0,0" TextWrapping="Wrap" Text="Максимальная :" IsEnabled="False" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="102,243,0,0" TextWrapping="Wrap" x:Name="MaximumActivityTbox" IsEnabled="False" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="69,116,0,0" TextWrapping="Wrap" x:Name="SitActivityTbox" IsEnabled="False" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="WpfApp1.MySponsor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MySponsor" Height="434.667" Width="494" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+        <CollectionViewSource x:Key="charityViewSource" Source="{Binding Charity, Source={StaticResource marathonDataSet}}"/>
+        <CollectionViewSource x:Key="mySponsorViewSource" Source="{Binding MySponsor, Source={StaticResource marathonDataSet}}"/>
+
+    </Window.Resources>
+    <Grid  Margin="0,-2,0,2" DataContext="{StaticResource mySponsorViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="94*"/>
+            <RowDefinition Height="34*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="114,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.394,-1.641" Height="0" Width="0" Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Margin="0,0,0,2" Background="Black" Grid.ColumnSpan="2" Grid.Row="6">
+            <Label Content="18 дней 8 часов и 17 минут до старта марафона!" HorizontalAlignment="Left" Foreground="White" Margin="92,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Width="484" Background="Black" Grid.ColumnSpan="2" Margin="0,0,0,1">
+            <Button Content="Назад" Background="Gray"  HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.569,0.45" Click="Button_Click"/>
+            <Label Content="MARATHON SKILLS 2020" Foreground="White" HorizontalAlignment="Left" Margin="158,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,-0.064"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Мои спонсоры" TextAlignment="Center" IsEnabled="False" Width="466" FontSize="18" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="Здесь показаны все ваши спосоры" TextAlignment="Center" IsEnabled="False" Width="476" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="CharitiNameTbox" Margin="10,0" Grid.Row="3" TextWrapping="Wrap" Text="Наименование благотворительной организации" TextAlignment="Center" IsEnabled="False"/>
+        <Image x:Name="CharityLogoImg" HorizontalAlignment="Left" Margin="10,5,0,10" Grid.Row="4" Width="229"/>
+        <Grid x:Name="grid2" DataContext="{StaticResource charityViewSource}" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="5" VerticalAlignment="Top" Height="84" Width="224">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="61*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="charityDescriptionTextBlock" Grid.Column="1" HorizontalAlignment="Left" IsEnabled="True" TextWrapping="Wrap" Margin="0,0,-215,-1" Grid.Row="0" Text="{Binding CharityDescription}" VerticalAlignment="Bottom" Width="223" Height="84" Grid.RowSpan="3"/>
+        </Grid>
+        <DataGrid x:Name="mySponsorDataGrid" IsEnabled="False" AutoGenerateColumns="False" Grid.Column="1" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,0,2,0" Grid.Row="4" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="sponsorNameColumn" Binding="{Binding SponsorName}" Header="Имя" Width="SizeToCells"/>
+                <DataGridTextColumn x:Name="amountColumn" Binding="{Binding Amount}" Header="Сумма" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="------------------------------------------------" Grid.Column="1" Grid.Row="5" Margin="0,0,2,68"/>
+        <TextBox Grid.Column="1" Margin="10,20,10,51" Grid.Row="5" TextWrapping="Wrap" x:Name="SumAmountTbox"  TextAlignment="Center" IsEnabled="False"/>
+    </Grid>
+</Window>

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("map-icon-medical.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ikonok.png")]
 
 

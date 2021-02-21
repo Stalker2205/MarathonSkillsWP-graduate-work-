@@ -1,0 +1,71 @@
+﻿<Window x:Class="WpfApp1.ManageCharities"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ManageCharities" Height="434.667" Width="494" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <local:marathonDataSet x:Key="marathonDataSet"/>
+        <CollectionViewSource x:Key="charityViewSource" Source="{Binding Charity, Source={StaticResource marathonDataSet}}"/>
+
+    </Window.Resources>
+    <Grid  Margin="0,-2,0,2" DataContext="{StaticResource charityViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="199*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="282*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="286,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.394,-1.641" Height="0" Width="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Height="32" VerticalAlignment="Top" Background="Black" Grid.Row="3" Grid.ColumnSpan="2">
+            <Label Content="18 дней 8 часов и 17 минут до старта марафона!" HorizontalAlignment="Left" Foreground="White" Margin="92,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.491,0.41" Name="LabelTime" Height="29"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="484" Background="Black" Grid.ColumnSpan="2">
+            <Button Content="Назад" Background="Gray"  HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.569,0.45" Click="Button_Click"/>
+            <Label Content="MARATHON SKILLS 2020" Foreground="White" HorizontalAlignment="Left" Margin="158,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,-0.064"/>
+        </Grid>
+        <DataGrid x:Name="charityDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,36,10,0" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="charityIdColumn" Binding="{Binding CharityId}" Header="Charity Id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="charityNameColumn" Header="Charity Name" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding CharityName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="charityDescriptionColumn" Header="Charity Description" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding CharityDescription}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Details" Click="Details_Click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" x:Name="CreateCharities" Click="CreateCharities_Click" Margin="7,4,6,4" Grid.Row="1"/>
+    </Grid>
+</Window>

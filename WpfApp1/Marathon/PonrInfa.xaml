@@ -45,11 +45,11 @@
         </Grid>
         <TextBlock IsEnabled="False" TextAlignment="Center" Foreground="Gray" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="подробная информация" VerticalAlignment="Top" Height="29" Width="466" FontSize="22" Grid.ColumnSpan="5"/>
         <Button Click="Button_Click_3" Content="Marathon skills 2020" Grid.Column="1" Grid.Row="1"/>
-        <Button Content="Bmi калькулятор" Margin="0,0,1,2" FontSize="16" Grid.Column="1" Grid.Row="3"/>
-        <Button Margin="1,0" Grid.Column="1" Grid.Row="2">
+        <Button Content="Bmi калькулятор" FontSize="16" Grid.Column="1" Grid.Row="3" Click="Button_Click_5"/>
+        <Button Grid.Column="1" Grid.Row="2" Click="Button_Click_4">
             <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="16"> предыдущие результаты</TextBlock>
         </Button>
-        <Button Content="BMR калькулятор" Margin="0,1,0,2" FontSize="16" Grid.Column="3" Grid.Row="3"/>
+        <Button Content="BMR калькулятор" Margin="0,1,0,0" FontSize="16" Grid.Column="3" Grid.Row="3" Click="Button_Click_7"/>
         <Button Click="Button_Click_1" Grid.Column="3" Grid.Row="2">
             <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="14"><Run Text="Список благотворительных организаций"/></TextBlock>
         </Button>
